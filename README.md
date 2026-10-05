@@ -2,7 +2,7 @@
 
 Cino Academy is a standalone evidence-grounded academic workflow plugin.
 
-Current accepted release: **v1.1.2**
+Current accepted release: **v1.1.3**
 
 Core workflow:
 
@@ -10,7 +10,7 @@ Assignment → Rubric → Research/Evidence → Argument → Draft → Voice →
 
 ## Release evidence
 
-The accepted v1.1.2 release preserves the accepted nine-stage engine and adds source-access precision, submission preflight, and Academic Twin contamination controls.
+The accepted v1.1.3 release preserves the accepted nine-stage engine and adds source-access precision, submission preflight, and Academic Twin contamination controls.
 
 Final v1.1.2 public package SHA-256:
 
