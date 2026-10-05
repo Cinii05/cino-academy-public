@@ -1,0 +1,48 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cino-academy",
+  "version": "1.1.2",
+  "description": "Evidence-grounded academic workflow for university assignments, research, argument design, drafting, review, revision, Academic Twin voice preservation, and submission preparation.",
+  "author": {
+    "name": "Max Cini",
+    "email": "293613553+Cinii05@users.noreply.github.com",
+    "url": "https://github.com/Cinii05"
+  },
+  "keywords": [
+    "academic",
+    "university",
+    "research",
+    "evidence",
+    "writing",
+    "review",
+    "citations"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Cino Academy",
+        "shortDescription": "Academic research & review",
+        "longDescription": "Evidence-grounded academic workflow for briefs, rubrics, research, argument design, drafting, voice preservation, review, revision, and submission preparation. It respects the applicable academic-integrity and GenAI policy and does not operate a publisher-owned external data service.",
+        "developerName": "Max Cini",
+        "category": "Education",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "Analyse this assignment brief and rubric.",
+          "Research this assignment with evidence and provenance.",
+          "Review my draft against the rubric and evidence."
+        ],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "brandColor": "#4F46E5",
+        "brandColorDark": "#C4B5FD",
+        "supportURL": "https://github.com/Cinii05/cino-toolkit-public/issues",
+        "privacyPolicyURL": "https://github.com/Cinii05/cino-toolkit-public/blob/main/policies/CINO-PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/Cinii05/cino-toolkit-public/blob/main/policies/CINO-TERMS.md"
+      }
+    }
+  }
+}

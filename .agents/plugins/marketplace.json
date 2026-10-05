@@ -1,0 +1,20 @@
+{
+  "name": "cino-academy-public",
+  "interface": {
+    "displayName": "Cino Academy"
+  },
+  "plugins": [
+    {
+      "name": "cino-academy",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Cinii05/cino-academy-public.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    }
+  ]
+}

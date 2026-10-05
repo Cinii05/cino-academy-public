@@ -1,0 +1,18 @@
+{
+  "release": "1.1.2",
+  "accepted": true,
+  "accepted_date": "2026-10-05",
+  "package_sha256": "09CC3F2ECBC710A3C80F57E30C333999690565EA3D9810463DE26D6EBDDB4E3A",
+  "source_commit_pre_seal": "b3cdfccf649e79716ee7fb0d0357373e0b0d6b4b",
+  "frozen_replay": "PASS",
+  "candidate_hostile": "13/13 PASS",
+  "installed_normal_use": "13/13 PASS (v1.1 semantic payload)",
+  "cross_assignment_generalization": "3/3 PASS",
+  "final_install": "1.1.2 exact cache parity PASS",
+  "semantic_parity_with_accepted_v1_1_payload": "PASS",
+  "payload_parity": "9/9 public release files; 0 mismatches",
+  "forbidden_fixture_hits": 0,
+  "rollback": "v1.1.1",
+  "semantic_change_from_1_1_1": false,
+  "directory_metadata_patch": true
+}
