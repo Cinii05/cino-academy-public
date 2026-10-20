@@ -1,16 +1,32 @@
 {
-  "release": "1.1.3",
-  "accepted": true,
-  "accepted_date": "2026-10-05",
-  "type": "directory-metadata-only",
-  "base_release": "v1.1.2",
-  "base_public_commit": "6081775870b7df6f9653c0c4061d649a9cd07371",
-  "semantic_skill_change": false,
-  "skill_body_parity": "PASS: skills/cino-academy/SKILL.md unchanged from v1.1.2",
-  "directory_fix": "category Education -> Productivity",
-  "package_sha256": "C047E3E7FDC1C6D1BDE3472EB7DF028CC8B275A204E2491E09C51DBBA7B45A13",
-  "rollback": "v1.1.2",
-  "semantic_change_from_1_1_2": false,
-  "directory_metadata_patch": true,
-  "status": "DIRECTORY_SUBMISSION_CANDIDATE"
+  "release": "1.2.0",
+  "status": "isolated-release-candidate",
+  "accepted": false,
+  "submitted_to_openai": false,
+  "published": false,
+  "created_date": "2026-10-20",
+  "base_public_commit": "e1bf811",
+  "prior_submission": "v1.1.3 (OpenAI changes required)",
+  "summary": "Six skill research and writing quality candidate: Cino Academy coordinator, Essay Planner, Literature Scout, Literature Synthesiser, Reference Auditor, Writing Master.",
+  "skill_ids": [
+    "cino-academy",
+    "cino-essay-planner",
+    "cino-literature-scout",
+    "cino-literature-synthesiser",
+    "cino-reference-auditor",
+    "cino-writing-master"
+  ],
+  "public_zip_sha256": "8353732f93076f581ecff332cda2d770b3f1c9efb056d9bebb33279c60c4ccfa",
+  "tests": {
+    "candidate_static": "11/11 PASS 20 October 2026",
+    "archived_academy_QA_units": "26/26 PASS (different isolated source; not native candidate certification)",
+    "native_route_QA": "NOT_VERIFIED (one Claude CLI semantic smoke response succeeded, but Skill event not captured)",
+    "openai_automated_checks": "NOT_RUN"
+  },
+  "release_blockers": [
+    "OpenAI v1.1.3 rejection reason still not supplied in portal",
+    "No independent native acceptance of six-skill v1.2.0 candidate",
+    "No authenticated upload or reviewer decision for v1.2.0"
+  ],
+  "notes": "Isolated QA only; installed Claude, Codex and OpenAI plugin versions are unchanged; no approved release claim."
 }

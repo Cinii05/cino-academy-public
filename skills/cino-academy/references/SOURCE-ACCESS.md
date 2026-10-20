@@ -25,3 +25,9 @@ Known credible contradictory evidence remains visible. Do not resolve a conflict
 
 ## Citations
 Citation presence proves neither access nor support. Every load-bearing citation must resolve to an accepted source/evidence record whose inspected content actually supports the bound claim at the asserted strength.
+
+A user-provided paraphrase said to derive from an abstract is still `USER_SUMMARY_ONLY` until the original abstract wording is inspected. Citation-to-claim support remains `UNVERIFIED` on a paraphrase alone; tag apparent agreements/mismatches as hypotheses rather than inspected source support.
+
+## Supplied verbatim publisher snippets versus user paraphrases
+
+If the user pastes the *actual wording* of a publisher abstract or identifiable Results passage (rather than paraphrasing it), record an `ABSTRACT_ONLY` or `PARTIAL_TEXT_INSPECTED` text-access scope with `provenance=USER_SUPPLIED_UNCONFIRMED`. This means the assistant has read the excerpt's text; it **does not** prove the text really appears at that source or page until independently opened. A paraphrase remains `USER_SUMMARY_ONLY`. Direct numeric contradiction in the supplied excerpt can be identified as `CONTRADICTED_BY_SUPPLIED_EXCERPT`, without claiming independently verified publication provenance.
