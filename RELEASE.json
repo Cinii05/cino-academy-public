@@ -16,16 +16,16 @@
     "cino-reference-auditor",
     "cino-writing-master"
   ],
-  "public_zip_sha256": "043e19e54247152bf3849f6376ba1e2e2124ddfcbc3206a29d0f34cca9353781",
+  "public_zip_sha256": "7bbee55dfb6253713fdc32b2860a5d092aca65c0c0737017b7503d7606d589a7",
   "tests": {
-    "candidate_static": "11/11 PASS 20 October 2026",
+    "candidate_static": "15/15 PASS on updated source 20 October 2026",
     "archived_academy_QA_units": "26/26 PASS (different isolated source; not native candidate certification)",
-    "native_route_QA": "NOT_VERIFIED (one Claude CLI semantic smoke response succeeded, but Skill event not captured)",
+    "native_route_QA": "13 native cases exercised across candidate iterations; 11/13 target specialist calls previously, with two assessed-writing safety-coordinator fallbacks; final 13-case frozen-source rerun in progress, NOT_YET_ACCEPTED",
     "openai_automated_checks": "NOT_RUN"
   },
   "release_blockers": [
     "OpenAI v1.1.3 rejection reason still not supplied in portal",
-    "No independent native acceptance of six-skill v1.2.0 candidate",
+    "Final 13-case native acceptance and independent P1 re-review not yet complete",
     "No authenticated upload or reviewer decision for v1.2.0"
   ],
   "notes": "Isolated QA only; installed Claude, Codex and OpenAI plugin versions are unchanged; no approved release claim."

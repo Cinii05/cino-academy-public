@@ -2,6 +2,10 @@
 
 A source record must describe what was actually inspected. Identity, prestige, a DOI, a citation, or a URL does not prove access to the supporting text.
 
+## Evidence record schema
+
+Record **four separate dimensions** for every study claim: `access_level` (what text was actually inspected), `provenance` (independently retrieved vs USER_SUPPLIED_UNCONFIRMED), `attribution_verification` (VERIFIED or NOT_VERIFIED against the identified publication), and `support_state` (exactly one of SUPPORTED, PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED or UNVERIFIED). Notes about matching or contradicting a user-provided excerpt are `comparison_note` free text, **not** additional support states. Keep a user-supplied passage's claimed publication/page unverified until a genuine source is checked. Every helper must carry these fields into synthesis and citation audits; a source access level alone never proves authenticity.
+
 ## Access modes
 - `FULL_TEXT_INSPECTED`: the relevant full source was inspectable and the supporting section was checked.
 - `PARTIAL_TEXT_INSPECTED`: only identified pages/sections were inspected. Support cannot exceed those inspected portions.
@@ -30,4 +34,4 @@ A user-provided paraphrase said to derive from an abstract is still `USER_SUMMAR
 
 ## Supplied verbatim publisher snippets versus user paraphrases
 
-If the user pastes the *actual wording* of a publisher abstract or identifiable Results passage (rather than paraphrasing it), record an `ABSTRACT_ONLY` or `PARTIAL_TEXT_INSPECTED` text-access scope with `provenance=USER_SUPPLIED_UNCONFIRMED`. This means the assistant has read the excerpt's text; it **does not** prove the text really appears at that source or page until independently opened. A paraphrase remains `USER_SUMMARY_ONLY`. Direct numeric contradiction in the supplied excerpt can be identified as `CONTRADICTED_BY_SUPPLIED_EXCERPT`, without claiming independently verified publication provenance.
+If the user pastes actual quoted text *claimed* to be from a publisher abstract or identified Results passage (rather than their paraphrase), record `ABSTRACT_ONLY` or `PARTIAL_TEXT_INSPECTED` for only that inspected passage, with `provenance=USER_SUPPLIED_UNCONFIRMED` and `attribution_verification=NOT_VERIFIED`. This records what words were read, **not** that those words genuinely occur in the named publication or on the claimed page. A paraphrase remains `USER_SUMMARY_ONLY`. A numeric contradiction against the pasted excerpt can be described in a `comparison_note`, but independent publication attribution and full-source claim support remain `UNVERIFIED` until the original source is verified. Do not use a new composite status token for excerpt-scoped comparisons.

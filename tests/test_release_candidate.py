@@ -52,6 +52,9 @@ class CandidateTests(unittest.TestCase):
             self.assertEqual(set(z.namelist()),{f['path'] for f in m['files']})
             for f in m['files']:
                 self.assertEqual(hashlib.sha256(z.read(f['path'])).hexdigest(),f['sha256'])
+                # Catch a modified SKILL.md even when the previous ZIP/manifest are internally consistent.
+                current=(ROOT/f['path']).read_bytes().replace(b'\r\n',b'\n')
+                self.assertEqual(z.read(f['path']),current,f['path'])
     def test_zip_without_test_artifacts(self):
         with zipfile.ZipFile(ZIP) as z:
             self.assertFalse(any('/tests/' in n or n.startswith('tests/') or '.git/' in n for n in z.namelist()))
@@ -101,6 +104,16 @@ class CandidateTests(unittest.TestCase):
                 self.assertEqual(info.compress_type,zipfile.ZIP_STORED)
                 self.assertEqual(info.date_time,(2020,1,1,0,0,0))
                 self.assertNotIn(b'\r\n',z.read(info))
+
+    def test_native_fixture_coverage_and_separation(self):
+        cases=json.loads((ROOT/'tests/fixtures/native_cases.json').read_text('utf-8'))
+        self.assertGreaterEqual(len(cases),10)
+        ids=[c['id'] for c in cases]
+        self.assertEqual(len(ids),len(set(ids)))
+        self.assertEqual({c['target'] for c in cases},
+                         {p.name for p in SKILLS.iterdir() if p.is_dir()})
+        self.assertTrue(all(len(c['prompt'])>80 and c.get('required') for c in cases))
+        self.assertFalse(any('real client' in c['prompt'].lower() for c in cases if c['id']=='A10'))
 
     def test_package_utf8(self):
         with zipfile.ZipFile(ZIP) as z:

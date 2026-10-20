@@ -23,7 +23,11 @@ Follow the precise citation style required by the current module, journal or cli
 
 ## Evidence-strength distinction
 
-Separate bibliographic identity from substantive claim verification. Crossref/OpenAlex metadata may establish a paper's DOI, title, authors and publication information without granting full-text access. Metadata alone cannot prove an empirical finding is true or false, and apparent topical irrelevance is a review flag, not a substitute for inspecting the source. Record: identity status, content-access level, citation-claim support status and suspected mismatch separately. For metadata-only cases, use UNVERIFIED for claim support and route to inspection before any definitive UNSUPPORTED/CONTRADICTED classification.
+Separate bibliographic identity from substantive claim verification. Crossref/OpenAlex metadata may establish a paper's DOI, title, authors and publication information without granting full-text access. Metadata alone cannot prove an empirical finding is true or false, and apparent topical irrelevance is a review flag, not a substitute for inspecting the source. Record: bibliographic identity, content-access level, provenance, attribution_verification, citation-claim support_state and suspected mismatch as separate fields. Follow Academy's closed four-dimension evidence schema in `../cino-academy/references/SOURCE-ACCESS.md`; comparison notes never replace the formal five-state support_state. For metadata-only cases, use UNVERIFIED for claim support and route to inspection before any definitive UNSUPPORTED/CONTRADICTED classification.
+
+## Status-field clarity
+
+Any additional labels describing a match or disagreement against a user-supplied excerpt are comments in the separate `comparison_note` field, **not** a formal `support_state`. Only the five Academy claim-support states may appear in `support_state`; for unauthenticated publication attribution keep it UNVERIFIED and record the excerpt comparison separately. Preserve `provenance=USER_SUPPLIED_UNCONFIRMED` and `attribution_verification=NOT_VERIFIED` until the identified source is independently inspected.
 
 ## Constraints
 
@@ -36,15 +40,17 @@ Do not fabricate DOI metadata, replace an unmatched citation with a similar-look
 
 A nonexistent citation is flagged rather than invented. A genuine DOI attached to a claim it appears unrelated to is a suspected citation mismatch. If only metadata was inspected, keep substantive claim support UNVERIFIED rather than declaring the source definitively UNSUPPORTED. Mark UNSUPPORTED only when inspected source content is adequate to establish that it does not support the asserted claim. Print/online publication-year ambiguity is checked rather than guessed. Matching mirrors of one study count as one origin. The final style is based on current assessment authority.
 
-## APA 7 and metadata precision (independent QA finding)
+## APA 7 and metadata precision
 
 Under APA 7, a book's publisher location is not ordinarily required: do not request 'place of publication' as a default APA 7 completion check. Follow the actual edition/style authority. If no live metadata lookup or real supplied record was inspected, treat the user's claimed DOI details as unverified inputs, not as a verified publication identity. Never offer an 'unverified paraphrase' as a substitute for inaccessible substantive source content.
 
 ## Quoted abstract versus someone else's abstract summary
 
-If the input is **a paraphrase or user summary of an abstract**, the actual source-access level is `USER_SUMMARY_ONLY`, **not** `ABSTRACT_ONLY` or `FULL_TEXT_INSPECTED`. Those stronger access modes require inspecting the publisher's abstract wording or identified actual source pages, respectively. A claim appearing consistent with a user-supplied paraphrase remains `UNVERIFIED` as a citation-to-source link until the corresponding source text is inspected. Record the apparent match or mismatch separately; do not call user-description agreement `PARTIALLY_SUPPORTED` by the source itself.
+If the input is **a paraphrase or user summary of an abstract**, the actual source-access level is `USER_SUMMARY_ONLY`, **not** `ABSTRACT_ONLY` or `FULL_TEXT_INSPECTED`. Those stronger access modes require inspecting actual quoted source wording; if the user pastes supposedly verbatim text, its provenance remains USER_SUPPLIED_UNCONFIRMED and attribution_verification remains NOT_VERIFIED. A verified publisher source is needed to authenticate the quotation. A claim appearing consistent with a user-supplied paraphrase remains `UNVERIFIED` as a citation-to-source link until the corresponding source text is inspected. Record the apparent match or mismatch separately; do not call user-description agreement `PARTIALLY_SUPPORTED` by the source itself.
 
 ## No actual identifier or metadata supplied
+
+When a user pastes *actual passage wording* but supplies no identifiable source, record that inspected text as PARTIAL_TEXT_INSPECTED (or ABSTRACT_ONLY when explicitly identified as an abstract excerpt) with provenance USER_SUPPLIED_UNCONFIRMED. This is text-access scope only; independent publication identity and page location are NOT_VERIFIED, and source-attributed claim support is UNVERIFIED. Do not label the text itself UNAVAILABLE when the quoted wording has been supplied. An absent original publication remains unverified.
 
 If the user says "I have only DOI metadata" but does **not** supply a DOI string, metadata fields, publisher record, abstract text or actual source content, the source is `UNAVAILABLE` to the assistant. Do not label it `METADATA_ONLY`, `ABSTRACT_ONLY` or any inspected-access level. Bibliographic identity and claim support both remain `NOT_VERIFIED` / `UNVERIFIED` as applicable. A user's statement that metadata exists is *not* access to that metadata. This exact distinction takes priority over generic advice to request a DOI. Refuse any request to invent a quotation, page number or supporting paraphrase.
 
@@ -56,7 +62,7 @@ If someone pastes a passage and claims it appears on page 8, you can compare a p
 
 A PDF that includes only "the pages you provide" does **not** justify `FULL_TEXT_INSPECTED`. It is `PARTIAL_TEXT_INSPECTED` even if the supplied pages prove one quoted sentence accurately. `FULL_TEXT_INSPECTED` requires the actual whole source to have been available and the relevant full context inspected; do not promote a pasted paragraph or screenshot to full text. When asked for a checked APA/reference list but **no source files or lookup access exist**, report which checks remain `NOT_VERIFIED` rather than giving a generic promise of future complete verification. Do not infer the user's source access from what they say they possess.
 
-## Distinguish quoted publisher excerpts from paraphrases (publisher-corpus QA)
+## Distinguish supplied excerpts from paraphrases
 
 When a request contains **explicit quoted text identified as a verbatim excerpt from a publisher's abstract or Results section**, that is source *text supplied to the assistant*, not merely a user's paraphrase. You may classify the actually read excerpt as `ABSTRACT_ONLY` (if a quoted abstract passage) or `PARTIAL_TEXT_INSPECTED` (if a quoted Results passage); add `provenance: USER_SUPPLIED, NOT_INDEPENDENTLY_FETCHED`. Do not pretend the DOI, publisher identity, context or page marker was independently checked. If the user supplies a summary **instead of quoted passage text**, it remains `USER_SUMMARY_ONLY`.
 

@@ -24,7 +24,7 @@
       "interface": {
         "displayName": "Cino Academy",
         "shortDescription": "Research, citations & writing",
-        "longDescription": "Six focused skills for university research and writing: assignment and rubric analysis, evidence-led essay planning, scholarly source discovery, comparative literature synthesis, citation and APA 7 checks, and source-faithful writing assistance. All work respects assessment GenAI rules; unavailable papers and unverified claims are clearly labelled. No publisher-hosted external data service.",
+        "longDescription": "Six focused skills for university research and writing: assignment and rubric analysis, evidence-led essay planning, scholarly source discovery, comparative literature synthesis, citation and APA 7 checks, and source-faithful writing assistance. Designed to follow supplied assessment GenAI rules and distinguish source access from unverified claims. Scholarly lookup depends on tools available in the user's session; the plugin does not host a research database or external service.",
         "developerName": "Max Cini",
         "category": "Productivity",
         "capabilities": [
@@ -34,7 +34,7 @@
         ],
         "defaultPrompt": [
           "Plan my assignment from its brief and marking rubric.",
-          "Find and compare academic studies for this research question.",
+          "Plan a literature search and compare source excerpts I supply.",
           "Verify the citations and APA 7 references in my draft."
         ],
         "logo": "./assets/icon.svg",
