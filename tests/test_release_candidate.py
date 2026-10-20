@@ -94,6 +94,14 @@ class CandidateTests(unittest.TestCase):
         self.assertFalse(record['submitted_to_openai'])
         self.assertEqual(record['public_zip_sha256'],hashlib.sha256(ZIP.read_bytes()).hexdigest())
 
+    def test_cross_platform_archive_format(self):
+        with zipfile.ZipFile(ZIP) as z:
+            for info in z.infolist():
+                self.assertEqual(info.create_system,3)
+                self.assertEqual(info.compress_type,zipfile.ZIP_STORED)
+                self.assertEqual(info.date_time,(2020,1,1,0,0,0))
+                self.assertNotIn(b'\r\n',z.read(info))
+
     def test_package_utf8(self):
         with zipfile.ZipFile(ZIP) as z:
             for n in z.namelist():
