@@ -65,6 +65,35 @@ class CandidateTests(unittest.TestCase):
             s=(SKILLS/k/'SKILL.md').read_text('utf-8').lower()
             self.assertIn('policy',s)
             self.assertIn('unknown',s)
+    def test_openai_submission_metadata_limits(self):
+        p=json.loads((ROOT/'plugin.json').read_text('utf-8'))
+        ui=p['extensions']['com.openai']['interface']
+        for field,limit in [('displayName',30),('shortDescription',30),
+                            ('developerName',80),('longDescription',4000)]:
+            self.assertTrue(ui.get(field),field)
+            self.assertLessEqual(len(ui[field]),limit,(field,len(ui[field])))
+        self.assertEqual(ui['category'],'Productivity')
+        prompts=ui.get('defaultPrompt',[])
+        self.assertTrue(1<=len(prompts)<=3)
+        self.assertEqual(len(set(prompts)),len(prompts))
+        self.assertTrue(all(0<len(v)<=128 for v in prompts))
+        self.assertTrue(all(str(ui[f]).startswith('https://')
+                            for f in ['websiteURL','supportURL','privacyPolicyURL','termsOfServiceURL']))
+        self.assertEqual(p['extensions']['com.openai']['publication'].get('countries'),None)
+        for attr in ['logo','composerIcon']:
+            self.assertTrue(ui[attr].startswith('./assets/'))
+            self.assertTrue((ROOT/ui[attr]).is_file())
+        svg=(ROOT/ui['logo']).read_text(encoding='utf-8')
+        self.assertIn('viewBox="0 0 64 64"',svg)
+        self.assertNotIn('<script',svg.lower())
+
+    def test_release_receipt_matches_zip(self):
+        record=json.loads((ROOT/'RELEASE.json').read_text('utf-8'))
+        self.assertFalse(record['accepted'])
+        self.assertFalse(record['published'])
+        self.assertFalse(record['submitted_to_openai'])
+        self.assertEqual(record['public_zip_sha256'],hashlib.sha256(ZIP.read_bytes()).hexdigest())
+
     def test_package_utf8(self):
         with zipfile.ZipFile(ZIP) as z:
             for n in z.namelist():

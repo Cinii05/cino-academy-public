@@ -16,7 +16,7 @@
     "cino-reference-auditor",
     "cino-writing-master"
   ],
-  "public_zip_sha256": "8353732f93076f581ecff332cda2d770b3f1c9efb056d9bebb33279c60c4ccfa",
+  "public_zip_sha256": "1302dec8f600fa397aedd4c204386f3331f92ea2af44e456304863a5993ca9fa",
   "tests": {
     "candidate_static": "11/11 PASS 20 October 2026",
     "archived_academy_QA_units": "26/26 PASS (different isolated source; not native candidate certification)",

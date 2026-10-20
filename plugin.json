@@ -23,10 +23,10 @@
     "com.openai": {
       "interface": {
         "displayName": "Cino Academy",
-        "shortDescription": "Academic research, citations & writing",
+        "shortDescription": "Research, citations & writing",
         "longDescription": "Six focused skills for university research and writing: assignment and rubric analysis, evidence-led essay planning, scholarly source discovery, comparative literature synthesis, citation and APA 7 checks, and source-faithful writing assistance. All work respects assessment GenAI rules; unavailable papers and unverified claims are clearly labelled. No publisher-hosted external data service.",
         "developerName": "Max Cini",
-        "category": "Education & Research",
+        "category": "Productivity",
         "capabilities": [
           "Interactive",
           "Read",
