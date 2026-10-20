@@ -57,7 +57,7 @@ For a small edit, return the improved text and mention only meaningful changes. 
 ## Acceptance examples
 
 - Improve an awkward student paragraph while keeping the exact quotation, sample size, citation, hedged conclusion and authorial intention.
-- An unknown GenAI policy blocks submission-ready essay generation but permits safe structure/feedback within actual course rules.
+- An unknown GenAI policy blocks assessment-specific drafting, planning, editing and feedback; give generic study guidance and explain which course permission must be established.
 - Rewrite a postgraduate methodological section without replacing specialist language with vague general words.
 - Write a short tutor email with a clear question and no invented deadline, attachment or claimed agreement; never send without permission.
 - Distinguish a polished Markdown report from a physically rendered DOCX/PDF.
@@ -85,7 +85,7 @@ A brief note that the draft has not been sent is sufficient. The default must no
 
 **Runtime reference fallback:** In a restricted tool session where `Skill` is available but the four `references/*.md` files are not independently readable, enforce every non-negotiable academic-integrity, author-voice, citation-fidelity, correspondence and file-truth guardrail from this main SKILL.md. Do not claim to have loaded a reference guide that you could not read.
 
-## Final semantic-fidelity stop check (independent QA finding)
+## Final semantic-fidelity stop check
 
 For an edit-only or compare-only request, freeze every source quotation including quotation-mark conventions, exact counts and percentages (do not change 18% to 'approximately 18%'), attribution verbs, causal direction, strength of hedges, and methodological actions. 'Themes were reviewed' cannot silently become 'themes were checked', just as 'may not generalise' cannot become a stronger or causally explained conclusion. If the data appear inconsistent, identify the possible issue **outside the edited paragraph**; do not repair it speculatively. If exact preservation prevents an improvement, say so rather than modify a fact.
 
@@ -117,7 +117,7 @@ For analysis of an attached self-authored essay, distinguish whether the supplie
 
 Use quotation marks around a student's words **only if the enclosed wording matches the supplied source character-for-character**. A concise summary such as a shift from memorising to understanding is a *paraphrase* unless the exact phrase occurs in the source. Leave paraphrases unquoted and mark them as interpretations if there is any risk of confusing them with evidence. Do not amplify the student's qualified self-report into a quantitative personal fact (for example, less consistent lecture attendance is not evidence of a measured low attendance rate).
 
-Critique and student-led revision questions are appropriate retrospective feedback. Do not replace paragraphs of assessed coursework when the current module's GenAI policy is unknown or restrictive. A prior Academic Twin profile partly derived from the same work is **not** an independent authorship or voice-match validation.
+Where Pass 0 has verified that assessment-specific feedback is permitted, critique and student-led revision questions are appropriate retrospective feedback. Do not replace paragraphs of assessed coursework when the current module's GenAI policy is unknown or restrictive. A prior Academic Twin profile partly derived from the same work is **not** an independent authorship or voice-match validation.
 
 ## Coursework prose quality without authorship misrepresentation
 

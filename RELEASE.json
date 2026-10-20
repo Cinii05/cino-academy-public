@@ -1,6 +1,6 @@
 {
   "release": "1.2.0",
-  "status": "isolated-release-candidate",
+  "status": "prepared-for-existing-openai-plugin-upload",
   "accepted": false,
   "submitted_to_openai": false,
   "published": false,
@@ -16,16 +16,16 @@
     "cino-reference-auditor",
     "cino-writing-master"
   ],
-  "public_zip_sha256": "7d2fe979f387bee01700158281d351b485342c161e3a55073f7c3657c6cde4b6",
+  "public_zip_sha256": "831331d0e7bbb0bf11bc34000a9dbcdb42fc7cbea8a0ab0a98254dff8887407b",
   "tests": {
-    "candidate_static": "17/17 PASS on final-source revision, 20 October 2026 (pending independent GitHub CI confirmation)",
+    "candidate_static": "18/18 local PASS on 20 October 2026; Linux GitHub CI pending final commit",
     "archived_academy_QA_units": "26/26 PASS (different isolated source; not native candidate certification)",
-    "native_route_QA": "Final full 13-case native run on prior candidate: 13/13 completed, 12/13 expected specialist; assessed-fabrication case went to Academy safety coordinator. Post-fix focused A10 and A13 each invoked intended specialist, no other tools; original OpenAI platform native review NOT_RUN.",
+    "native_route_QA": "Previous full 13-case native run: 13/13 completed, 12 expected specialist and 1 academic-integrity coordinator. Latest final-source focused A10, A13 and A14: 3/3 correct routes and policy behaviour, zero non-Skill tool attempts. Platform-native check NOT_RUN.",
     "openai_automated_checks": "NOT_RUN"
   },
   "release_blockers": [
     "OpenAI v1.1.3 rejection reason still not supplied in portal",
-    "Final post-fix independent source review and OpenAI platform validation not yet complete",
+    "Existing OpenAI plugin v1.2.0 ZIP upload and automated Metadata & Skills checks NOT_RUN",
     "No authenticated upload or reviewer decision for v1.2.0"
   ],
   "notes": "Isolated QA only; installed Claude, Codex and OpenAI plugin versions are unchanged; no approved release claim."

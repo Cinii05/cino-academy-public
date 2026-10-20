@@ -35,7 +35,7 @@
         "defaultPrompt": [
           "Plan my assignment from its brief and marking rubric.",
           "Plan a literature search and compare source excerpts I supply.",
-          "Verify the citations and APA 7 references in my draft."
+          "Check the citations and APA 7 references in my draft."
         ],
         "logo": "./assets/icon.svg",
         "composerIcon": "./assets/icon.svg",
@@ -47,7 +47,7 @@
         "websiteURL": "https://github.com/Cinii05/cino-academy-public"
       },
       "publication": {
-        "release_notes": "1.2.0 candidate: six standalone skills (coordinator, essay planner, literature scout, literature synthesiser, reference auditor, writing master); stronger APA 7 checks, research access provenance, cross-study critical synthesis and source-faithful writing. No MCP service."
+        "release_notes": "1.2.0: six standalone skills (coordinator, essay planner, literature scout, literature synthesiser, reference auditor, writing master); stronger APA 7 checks, research access provenance, cross-study critical synthesis and source-faithful writing. No MCP service."
       }
     }
   },

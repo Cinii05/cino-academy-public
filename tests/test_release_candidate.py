@@ -140,6 +140,15 @@ class CandidateTests(unittest.TestCase):
         self.assertIn('not as PARTIALLY_SUPPORTED',synth)
         self.assertIn('cannot establish decay or persistence',synth)
 
+    def test_unknown_policy_never_implies_feedback_permission(self):
+        writing=(SKILLS/'cino-writing-master'/'SKILL.md').read_text('utf-8')
+        academy=(SKILLS/'cino-academy'/'SKILL.md').read_text('utf-8')
+        self.assertNotIn('permits safe structure/feedback',writing)
+        self.assertIn('Where Pass 0 has verified',writing)
+        self.assertIn('An unknown GenAI policy blocks assessment-specific drafting, planning, editing and feedback',writing)
+        self.assertIn('Honour an explicit user-reported restriction immediately',academy)
+        self.assertIn('generic study-skills guidance',academy)
+
     def test_package_utf8(self):
         with zipfile.ZipFile(ZIP) as z:
             for n in z.namelist():

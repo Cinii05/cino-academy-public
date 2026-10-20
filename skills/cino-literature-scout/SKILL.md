@@ -35,7 +35,7 @@ Do not invent DOI, authors, quotes, page numbers, affiliations, abstract content
 
 ## Output
 
-Provide (a) concise search coverage and gaps, (b) source table including identifiers and actual access levels, (c) independent evidence chains and likely counterevidence, (d) short reading plan, and (e) exact claims that remain UNVERIFIED. An inaccessible source is still a useful candidate, but is not accepted as substantive inspected evidence.
+Provide (a) concise search coverage and gaps, (b) source table including identifiers, actual access levels, source provenance and attribution-verification status, (c) independent evidence chains and likely counterevidence, (d) short reading plan, and (e) exact claims that remain UNVERIFIED. An inaccessible source is still a useful candidate, but is not accepted as substantive inspected evidence.
 
 ## Acceptance cases
 
