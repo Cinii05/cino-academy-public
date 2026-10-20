@@ -115,6 +115,31 @@ class CandidateTests(unittest.TestCase):
         self.assertTrue(all(len(c['prompt'])>80 and c.get('required') for c in cases))
         self.assertFalse(any('real client' in c['prompt'].lower() for c in cases if c['id']=='A10'))
 
+    def test_single_claim_support_vocabulary(self):
+        auditor=(SKILLS/'cino-reference-auditor'/'SKILL.md').read_text('utf-8')
+        reference=(SKILLS/'cino-academy'/'references'/'SOURCE-ACCESS.md').read_text('utf-8')
+        allowed={'SUPPORTED','PARTIALLY_SUPPORTED','UNSUPPORTED','CONTRADICTED','UNVERIFIED'}
+        for forbidden in [
+            'MATCHES_USER_PROVIDED_TEXT','VERIFIED_IN_SOURCE',
+            'CONTRADICTED_BY_SUPPLIED_EXCERPT','UNSUPPORTED_BY_SUPPLIED_EXCERPT',
+            'USER_SUPPLIED_PUBLICATION_TYPE','NOT_INDEPENDENTLY_FETCHED'
+        ]:
+            self.assertNotIn(forbidden,auditor,forbidden)
+        self.assertIn('comparison_note',auditor)
+        self.assertIn('support_state=UNVERIFIED',auditor)
+        self.assertIn('attribution_verification=NOT_VERIFIED',auditor)
+        self.assertIn('USER_SUPPLIED_UNCONFIRMED',auditor)
+        for status in allowed:self.assertIn(status,reference)
+        self.assertIn('Publication-attributed support_state stays UNVERIFIED',reference)
+
+    def test_synthetic_synthesis_does_not_upgrade_source_support(self):
+        synth=(SKILLS/'cino-literature-synthesiser'/'SKILL.md').read_text('utf-8')
+        for rule in ['support_state=UNVERIFIED','attribution_verification=NOT_VERIFIED',
+                     'comparison_note','estimands','independent evidence origins']:
+            self.assertIn(rule,synth)
+        self.assertIn('not as PARTIALLY_SUPPORTED',synth)
+        self.assertIn('cannot establish decay or persistence',synth)
+
     def test_package_utf8(self):
         with zipfile.ZipFile(ZIP) as z:
             for n in z.namelist():
