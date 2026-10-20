@@ -1,27 +1,7 @@
-# Cino Academy
+# Cino Academy 1.2.0 release candidate
 
-Cino Academy is a standalone evidence-grounded academic workflow plugin.
+Six independent academic skills: Academy coordinator, Essay Planner, Literature Scout, Literature Synthesiser, Reference Auditor and Writing Master. The research helpers support the established nine-stage Academy workflow rather than replacing its authoritative gates. The user must comply with the applicable assessment GenAI policy.
 
-Current accepted release: **v1.1.3**
+This isolated candidate is not yet an approved, published or native-acceptance-tested OpenAI plugin. Source ideas were evaluated from skills.sh; no third-party skill source or external binaries have been copied.
 
-Core workflow:
-
-Assignment → Rubric → Research/Evidence → Argument → Draft → Voice → MarkerReview → Revision → First+
-
-## Release evidence
-
-The accepted v1.1.3 release preserves the accepted nine-stage engine and adds source-access precision, submission preflight, and Academic Twin contamination controls.
-
-Final v1.1.2 public package SHA-256:
-
-`09CC3F2ECBC710A3C80F57E30C333999690565EA3D9810463DE26D6EBDDB4E3A`
-
-## Data boundary
-
-Do not commit:
-- Academic Twin source corpus or personal coursework
-- university/student identifiers
-- client evidence or real project material
-- real-run assignment workspaces
-- credentials, tokens, auth files, or connector data
-
+Source: https://github.com/Cinii05/cino-academy-public

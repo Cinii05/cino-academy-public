@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cino-academy",
-  "version": "1.1.3",
-  "description": "Evidence-grounded academic workflow for university assignments, research, argument design, drafting, review, revision, Academic Twin voice preservation, and submission preparation.",
+  "version": "1.2.0",
+  "description": "Evidence-grounded academic planning, scholarly discovery, critical literature synthesis, reference verification, source-safe writing and rubric review.",
   "author": {
     "name": "Max Cini",
     "email": "293613553+Cinii05@users.noreply.github.com",
@@ -10,30 +10,32 @@
   },
   "keywords": [
     "academic",
-    "university",
     "research",
+    "university",
     "evidence",
+    "literature-review",
+    "citation-verification",
+    "essay-planning",
     "writing",
-    "review",
-    "citations"
+    "APA7"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Cino Academy",
-        "shortDescription": "Academic research & review",
-        "longDescription": "Evidence-grounded academic workflow for briefs, rubrics, research, argument design, drafting, voice preservation, review, revision, and submission preparation. It respects the applicable academic-integrity and GenAI policy and does not operate a publisher-owned external data service.",
+        "shortDescription": "Research, citations & writing",
+        "longDescription": "Six focused skills for university research and writing: assignment and rubric analysis, evidence-led essay planning, scholarly source discovery, comparative literature synthesis, citation and APA 7 checks, and source-faithful writing assistance. Designed to follow supplied assessment GenAI rules and distinguish source access from unverified claims. Scholarly lookup depends on tools available in the user's session; the plugin does not host a research database or external service.",
         "developerName": "Max Cini",
-        "category": "Education & Research",
+        "category": "Productivity",
         "capabilities": [
           "Interactive",
           "Read",
           "Write"
         ],
         "defaultPrompt": [
-          "Analyse this assignment brief and rubric.",
-          "Research this assignment with evidence and provenance.",
-          "Review my draft against the rubric and evidence."
+          "Plan my assignment from its brief and marking rubric.",
+          "Plan a literature search and compare source excerpts I supply.",
+          "Check the citations and APA 7 references in my draft."
         ],
         "logo": "./assets/icon.svg",
         "composerIcon": "./assets/icon.svg",
@@ -45,7 +47,7 @@
         "websiteURL": "https://github.com/Cinii05/cino-academy-public"
       },
       "publication": {
-        "release_notes": "Cino Academy 1.1.3 updates public-directory metadata and publisher links while preserving the accepted 1.1 academic workflow and skill behavior."
+        "release_notes": "1.2.0: six standalone skills (coordinator, essay planner, literature scout, literature synthesiser, reference auditor, writing master); stronger APA 7 checks, research access provenance, cross-study critical synthesis and source-faithful writing. No MCP service."
       }
     }
   },

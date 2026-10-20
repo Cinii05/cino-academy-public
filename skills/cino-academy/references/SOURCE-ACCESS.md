@@ -2,6 +2,10 @@
 
 A source record must describe what was actually inspected. Identity, prestige, a DOI, a citation, or a URL does not prove access to the supporting text.
 
+## Evidence record schema
+
+Record **four separate dimensions** for every study claim: `access_level` (what text was actually inspected), `provenance` (independently retrieved vs USER_SUPPLIED_UNCONFIRMED), `attribution_verification` (VERIFIED or NOT_VERIFIED against the identified publication), and `support_state` (exactly one of SUPPORTED, PARTIALLY_SUPPORTED, UNSUPPORTED, CONTRADICTED or UNVERIFIED). Notes about matching or contradicting a user-provided excerpt are `comparison_note` free text (e.g. 'matches supplied passage', 'contradicts supplied excerpt', 'not stated in supplied excerpt'), **never** additional support states. Publication-attributed support_state stays UNVERIFIED when the only evidence is an unverified user-supplied passage. Keep a user-supplied passage's claimed publication/page unverified until a genuine source is checked. Every helper must carry these fields into synthesis and citation audits; a source access level alone never proves authenticity.
+
 ## Access modes
 - `FULL_TEXT_INSPECTED`: the relevant full source was inspectable and the supporting section was checked.
 - `PARTIAL_TEXT_INSPECTED`: only identified pages/sections were inspected. Support cannot exceed those inspected portions.
@@ -25,3 +29,9 @@ Known credible contradictory evidence remains visible. Do not resolve a conflict
 
 ## Citations
 Citation presence proves neither access nor support. Every load-bearing citation must resolve to an accepted source/evidence record whose inspected content actually supports the bound claim at the asserted strength.
+
+A user-provided paraphrase said to derive from an abstract is still `USER_SUMMARY_ONLY` until the original abstract wording is inspected. Citation-to-claim support remains `UNVERIFIED` on a paraphrase alone; tag apparent agreements/mismatches as hypotheses rather than inspected source support.
+
+## Supplied verbatim publisher snippets versus user paraphrases
+
+If the user pastes actual quoted text *claimed* to be from a publisher abstract or identified Results passage (rather than their paraphrase), record `ABSTRACT_ONLY` or `PARTIAL_TEXT_INSPECTED` for only that inspected passage, with `provenance=USER_SUPPLIED_UNCONFIRMED` and `attribution_verification=NOT_VERIFIED`. This records what words were read, **not** that those words genuinely occur in the named publication or on the claimed page. A paraphrase remains `USER_SUMMARY_ONLY`. A numeric contradiction against the pasted excerpt can be described in a `comparison_note`, but independent publication attribution and full-source claim support remain `UNVERIFIED` until the original source is verified. Do not use a new composite status token for excerpt-scoped comparisons.
