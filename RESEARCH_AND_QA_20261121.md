@@ -24,5 +24,5 @@
 ## Known limits and follow-ups
 - The old platform Academy plugin ID recorded on MSI was inaccessible in this signed-in Plugin Creator account. This is an identity/history discrepancy, not an assertion that the old plugin never existed.
 - The v1.3.0 skill is a workflow guide plus portable references; it does not automatically run the local Python QA or live Crossref checks in ChatGPT. Relevant connected tools must be used separately and source results verified.
-- Private-plugin creation/availability and platform-native six-route behaviour require a separate actual release receipt. Do not infer them from the local ZIP or tests.
+- The private release was created in the current personal plugin account: https://chatgpt.com/plugins/plugins_6b021dda1a68819193db39b9eb7ec3e2 (version 1.3.0, release pluginrel_6b021ddba2fc8191a9651cce958f8e80, PRIVATE according to owner metadata). All six SKILL.md entries are present. The sharing-details endpoint failed and the skills were not activated in this existing conversation; native six-route behaviour remains NOT_RUN.
 - Authored voice calibration requires genuinely student-authored, consenting samples, ideally including held-out samples, and module-specific verified AI permissions; the synthetic QA suite cannot substitute for that evidence.

@@ -94,9 +94,17 @@ class CandidateTests(unittest.TestCase):
 
     def test_release_receipt_matches_zip(self):
         record=json.loads((ROOT/'RELEASE.json').read_text('utf-8'))
-        self.assertFalse(record['accepted'])
-        self.assertFalse(record['published'])
-        self.assertFalse(record['submitted_to_openai'])
+        self.assertEqual(record['release'], VERSION)
+        self.assertFalse(record['submitted_to_openai'])  # no public Platform review submitted
+        if record['published']:
+            self.assertEqual(record['status'], 'private-release-created')
+            self.assertTrue(record['accepted'])
+            self.assertTrue(record['private_plugin_id'].startswith('plugins_'))
+            self.assertTrue(record['private_plugin_release_id'].startswith('pluginrel_'))
+            self.assertTrue(record['private_plugin_url'].startswith('https://chatgpt.com/plugins/'))
+            self.assertEqual(record['discoverability'], 'PRIVATE')
+        else:
+            self.assertFalse(record['accepted'])
         self.assertEqual(record['public_zip_sha256'],hashlib.sha256(ZIP.read_bytes()).hexdigest())
 
     def test_cross_platform_archive_format(self):
