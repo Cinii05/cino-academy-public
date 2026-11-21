@@ -2,7 +2,8 @@ from pathlib import Path
 import unittest, hashlib, zipfile, json, re
 ROOT=Path(__file__).resolve().parents[1]
 SKILLS=ROOT/'skills'
-ZIP=ROOT/'dist'/'cino-academy-1.2.0-review-candidate.zip'
+VERSION=json.loads((ROOT/'plugin.json').read_text('utf-8-sig'))['version']
+ZIP=ROOT/'dist'/f'cino-academy-{VERSION}-review-candidate.zip'
 
 class CandidateTests(unittest.TestCase):
     def test_six_distinct_skills(self):
@@ -39,7 +40,8 @@ class CandidateTests(unittest.TestCase):
             if path.is_file():self.assertNotIn(path.suffix.lower(),['.exe','.dll','.pyd','.pyc','.bat','.ps1'])
     def test_version_and_manifest(self):
         p=json.loads((ROOT/'plugin.json').read_text('utf-8'))
-        self.assertEqual(p['version'],'1.2.0')
+        self.assertEqual(p['version'], VERSION)
+        self.assertRegex(VERSION, r'^\d+\.\d+\.\d+$')
         self.assertEqual(p['name'],'cino-academy')
         self.assertNotIn('mcpServers',p)
         self.assertTrue((ROOT/'assets/icon.svg').is_file())

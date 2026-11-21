@@ -7,6 +7,9 @@ description: Use this skill when a user asks to rewrite, edit, polish, proofread
 
 Make writing sound like a competent, identifiable author with something specific to say. Preserve the original writer's meaning, disciplinary accuracy, citations, authentic voice and integrity. This is a **standalone Academy skill**: do not require Cino Toolkit, third-party extensions, other plugins or access to a document renderer to perform honest text-only edits.
 
+For assessed work with a verified permitted mode, read `references/ACADEMIC-VOICE-QA.md` for genre-aware fidelity checks and `references/VOICE-LEARNING.md` for author-approved corrections and held-out comparisons. Do **not** incorporate personal samples into the distributed plugin or falsely claim that local machine scripts are available in ChatGPT. For quick standalone communication, skip academic intake and use the relevant communications guide.
+
+
 ## Routing and authority
 
 1. **Academic assessed work**: Cino Academy's current assignment brief, marking rubric, nine-stage engine order, verified scholarly evidence and GenAI policy govern everything. The Academic Twin reference in `../cino-academy/references/ACADEMIC-TWIN.md` governs personal style. This helper never awards engine PASS or calls assessed work submission-ready.

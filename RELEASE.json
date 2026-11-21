@@ -1,13 +1,17 @@
 {
-  "release": "1.2.0",
-  "status": "prepared-for-existing-openai-plugin-upload",
+  "release": "1.3.0",
+  "status": "private-release-candidate",
   "accepted": false,
   "submitted_to_openai": false,
   "published": false,
-  "created_date": "2026-10-20",
-  "base_public_commit": "e1bf811",
-  "prior_submission": "v1.1.3 (OpenAI changes required)",
-  "summary": "Six skill research and writing quality candidate: Cino Academy coordinator, Essay Planner, Literature Scout, Literature Synthesiser, Reference Auditor, Writing Master.",
+  "prepared_date": "2026-11-21",
+  "source_branch": "max/academy-evidence-voice-20261121",
+  "base_head_sha": "a0ef5dc8f0c919d47c8af10652a3d211f59a6876",
+  "legacy_plugin_id": "plugins_6ac4115e6c7081918cc4e7b0e898ac63",
+  "legacy_plugin_access": "NOT_FOUND in current authenticated personal plugin account",
+  "private_plugin_id": null,
+  "private_plugin_release_id": null,
+  "private_plugin_url": null,
   "skill_ids": [
     "cino-academy",
     "cino-essay-planner",
@@ -16,17 +20,17 @@
     "cino-reference-auditor",
     "cino-writing-master"
   ],
-  "public_zip_sha256": "831331d0e7bbb0bf11bc34000a9dbcdb42fc7cbea8a0ab0a98254dff8887407b",
+  "public_zip_sha256": "99dbf807c1f2fc76bb934c51f784b9e7a6d8eaaf091b53d3c54fcdbfd7818f7c",
   "tests": {
-    "candidate_static": "18/18 local PASS on 20 October 2026; Linux GitHub CI pending final commit",
-    "archived_academy_QA_units": "26/26 PASS (different isolated source; not native candidate certification)",
-    "native_route_QA": "Previous full 13-case native run: 13/13 completed, 12 expected specialist and 1 academic-integrity coordinator. Latest final-source focused A10, A13 and A14: 3/3 correct routes and policy behaviour, zero non-Skill tool attempts. Platform-native check NOT_RUN.",
-    "openai_automated_checks": "NOT_RUN"
+    "baseline": "18/18 source candidate tests passed on v1.2.0 base",
+    "new_deterministic": "PENDING",
+    "live_scholarly_crossref": "NOT_RUN",
+    "blind_model_comparison": "NOT_RUN - no model charges authorised",
+    "chatgpt_six_routes": "NOT_RUN"
   },
-  "release_blockers": [
-    "OpenAI v1.1.3 rejection reason still not supplied in portal",
-    "Existing OpenAI plugin v1.2.0 ZIP upload and automated Metadata & Skills checks NOT_RUN",
-    "No authenticated upload or reviewer decision for v1.2.0"
-  ],
-  "notes": "Isolated QA only; installed Claude, Codex and OpenAI plugin versions are unchanged; no approved release claim."
+  "unverified": [
+    "Old platform reviewer findings are inaccessible in this authenticated account.",
+    "No proof of essay grade uplift or personal-voice fit without verified user samples.",
+    "Portable plugin cannot run local MSI scripts merely by loading SKILL.md."
+  ]
 }

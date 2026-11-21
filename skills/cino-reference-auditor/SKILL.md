@@ -7,6 +7,9 @@ description: Use this skill when asked to check whether a citation supports an a
 
 Bibliographic existence and support for a claim are separate questions. A real DOI does not prove a cited conclusion.
 
+Apply the five checks in `../cino-academy/references/EVIDENCE-LEDGER.md`: identity, access, precise source claim support, permissible inference and reference formatting. An authenticated publisher/registry metadata match can establish identity only. A local MSI may have the existing `citation-verification/scripts/verify_citations.py` helper, but it is **not bundled in this plugin**; inspect it and run only via a genuinely authorised host with network access and approved data. If unavailable, do not claim automated validation.
+
+
 ## Authority and routing
 
 Follow the precise citation style required by the current module, journal or client. If unspecified, present a provisional style suggestion rather than presuming APA, Harvard or another convention. This helper reports findings to Academy's Research/Evidence Engine and cannot unilaterally promote a Claim status to SUPPORTED.

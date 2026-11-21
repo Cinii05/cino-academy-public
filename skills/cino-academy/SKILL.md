@@ -7,6 +7,11 @@ description: Use this skill for university coursework or assessed writing when i
 
 Cino Academy is a standalone academic workflow product. It adapts to Cino Core contracts but must not require Cino Toolkit or Cino StarNet.
 
+## Assignment-specific card and proportional pathways
+
+For assessed work, read `references/ASSIGNMENT-CARD.md`: one assignment ID, one source-verified brief/rubric/GenAI scope, with no policy or factual leakage between modules. Choose the smallest appropriate QUICK, RESEARCH, ARGUMENT, REVIEW or FULL path; do not claim nine engines ran for a simple authorised paragraph edit. Only FULL runs the nine accepted stages. Keep present restrictions for unknown or total-ban policies. Give a short receipt of what was actually inspected or executed.
+
+
 ## Start by establishing authority
 
 Inspect the actual assessment brief, rubric/marking criteria, module guidance and AI-use rules when available. Keep assessment authority distinct from lecture material, academic literature, primary evidence, marker feedback, previous writing and user notes. Never let a lower-authority source silently override a current assessment requirement.
@@ -43,6 +48,9 @@ When the user asks what the literature collectively shows, how researchers disag
 
 ## Evidence and source access
 
+When a claim or citation is material, use the `references/EVIDENCE-LEDGER.md` claim-to-passage handoff alongside SOURCE-ACCESS; a DOI/title/author/year identity check cannot prove substantive claim support. Do not pretend a local script is installed in the ChatGPT plugin; report actual tool use and missing access.
+
+
 Keep `SUPPORTED`, `PARTIALLY_SUPPORTED`, `UNSUPPORTED`, `CONTRADICTED` and `UNVERIFIED` distinct. Missing evidence is a gap, not permission to infer a fact. Contradictory credible evidence remains visible.
 
 Record what was actually inspected: full text, inspected partial text, abstract only, metadata only, user summary only, or unavailable. Never describe abstract-only or metadata-only access as full-text inspection. A claim cannot exceed the scope, population, outcome, timeframe, methodology or inspected access level of its evidence.
@@ -66,6 +74,9 @@ Academic Twin is optional and user-specific. With no valid profile, use a neutra
 Prior coursework is style evidence only: it must not silently donate claims, citations, factual mistakes, personal facts or assignment-specific wording. Voice transforms must preserve substantive claims, qualification boundaries, citations, numerical facts and paragraph purposes. Read `references/ACADEMIC-TWIN.md` when building or applying a profile.
 
 ## Review and revision
+
+Use `references/ARGUMENT-WORKSHOP.md` when a learner needs genuine counterarguments, Business/Management application and targeted Socratic questions. Use `references/REVISION-RECEIPT.md` for exact-current-draft findings, user choices and independent closure; avoid repeating edits without improvement. For academic style, `cino-writing-master/references/VOICE-LEARNING.md` specifies consented human edits, genre separation and held-out checks.
+
 
 MarkerReview must inspect the actual current draft. Revision changes only what an open finding authorises, preserves evidence/citation bindings, and requests independent re-review. It may not mark its own finding resolved. Stop no-progress loops. First+ is bounded quality escalation; it must not chase a grade, fabricate novelty, add unsupported sophistication, or make detector-evasion edits.
 

@@ -7,6 +7,9 @@ description: Compare and critically synthesise a set of actually inspected acade
 
 Turn a bounded and inspected literature corpus into a defensible argument about what is known, disputed and unresolved. This is a Cino Academy Research/Evidence helper, not another engine, and it cannot declare Academy evidence gates PASS.
 
+Use `../cino-academy/references/EVIDENCE-LEDGER.md` for source and passage provenance, and `../cino-academy/references/ARGUMENT-WORKSHOP.md` when a permitted review asks for a conditional judgement between competing theories. Do not mistake several summaries of one dataset for independent corroboration.
+
+
 ## Inputs and authority
 
 Read the actual research question, assignment or research protocol, source records and access notes. Apply Academy's GenAI gate: when policy is unknown, provide general source-evaluation methods rather than an assessment-specific matrix; when all AI assistance is expressly prohibited, no assignment-specific synthesis or feedback; when a verified policy allows bounded research support, produce only those allowed outputs. Ask for inaccessible source text rather than pretending to have read it.

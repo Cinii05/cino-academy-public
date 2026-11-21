@@ -1,5 +1,8 @@
 # Source access and independence
 
+The optional executable/schematic claim-to-source handoff is in `EVIDENCE-LEDGER.md`; it **does not** add a fifth formal support status or bypass publication authentication.
+
+
 A source record must describe what was actually inspected. Identity, prestige, a DOI, a citation, or a URL does not prove access to the supporting text.
 
 ## Evidence record schema

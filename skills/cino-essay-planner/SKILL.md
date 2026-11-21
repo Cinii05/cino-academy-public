@@ -7,6 +7,9 @@ description: Use this skill when asked to plan an academic essay, create an argu
 
 Construct an argument-led plan from the actual assignment, not a generic essay template.
 
+For a permitted request to **challenge** a thesis rather than draft an essay, use the Academy `../cino-academy/references/ARGUMENT-WORKSHOP.md` protocol: one real claim, a serious countercase, a testable mechanism, the actual rubric and 2–4 questions. Offer TUTOR (student answers) or REVIEWER (location-specific feedback) without pretending a student answered or invented data exist.
+
+
 ## Governing authority
 
 Read current brief, rubric, word-count rules, module guidance and GenAI permissions whenever accessible. If the brief is missing and the request spans literature discovery as well as essay planning, defer primary routing to Cino Academy so authority is established before the helpers operate; do not independently certify assignment requirements. This is a bounded helper to Cino Academy's Assignment, Rubric and Argument Architect engines. It cannot award PASS gates or bypass unresolved authority. Missing assessment details must be visible.

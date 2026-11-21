@@ -7,6 +7,9 @@ description: Use this skill when asked to find actual academic papers or researc
 
 Find actual research and record exactly what was inspected. Being indexed or highly cited does not prove that a source supports a claim.
 
+Return source IDs and source-access evidence in the `../cino-academy/references/EVIDENCE-LEDGER.md` format where claims are proposed. Screening logs must contain actual searched indexes, search dates, inclusion/exclusion reasons, duplicate-origin groups and full-text access limitations. Never label a narrative search PRISMA without a genuine systematic protocol.
+
+
 ## Authority and relationship to Academy
 
 Read the current assessment, research question, required source types, academic integrity rules and relevant Cino Academy source-access contract when available. This is a discovery helper to Research/Evidence, not a tenth assessment engine. It cannot assign independent PASS gates, override the assignment authority or turn a possible citation into SUPPORTED evidence.

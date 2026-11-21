@@ -1,5 +1,8 @@
 # Academic Twin operating rules
 
+See `../../cino-writing-master/references/VOICE-LEARNING.md` for explicit consented source samples, user-approved correction learning, per-genre traits and a held-out sanity check. Only the student's **identifiable edits** to an AI draft can inform a proposed preference, and only after consent; the surrounding AI text never becomes SELF_AUTHORED by association.
+
+
 Academic Twin is an optional style-preservation layer, not an authorship simulator and not a source of facts.
 
 ## Profile modes
