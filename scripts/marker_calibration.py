@@ -28,7 +28,7 @@ def _labels(findings: list[dict], name: str) -> dict[str, str]:
     return out
 
 def compare_sample(sample: dict) -> dict:
-    if not sample.get("sample_id") or not sample.get("human_feedback_verified"):
+    if not sample.get("sample_id") or sample.get("human_feedback_verified") is not True:
         raise ValueError("A sample ID and independently VERIFIED marker feedback are required")
     if not isinstance(sample.get("human_feedback_locator"), str) or not sample["human_feedback_locator"].strip():
         raise ValueError("Verified marker feedback needs an auditable local/document locator")

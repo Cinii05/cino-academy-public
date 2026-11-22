@@ -116,8 +116,10 @@ class MarkerCalibrationTests(unittest.TestCase):
         self.assertEqual(c["unmatched_academy_flags"],["structure"])
 
     def test_refuses_unverified_marker_labels(self):
-        with self.assertRaises(ValueError):
-            marker_calibration.compare_sample(self.sample(human_feedback_verified=False))
+        for invalid in (False, None, "false", "UNVERIFIED", 1, 0):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                marker_calibration.compare_sample(
+                    self.sample(human_feedback_verified=invalid))
 
     def test_marker_locator_required_even_when_marked_verified(self):
         with self.assertRaises(ValueError):
@@ -174,6 +176,47 @@ class ResearchMemoryTests(unittest.TestCase):
     def test_unverified_excerpt_cannot_be_declared_supported(self):
         with self.assertRaises(ValueError):
             research_memory.add_card(self.db,dict(self.card,support_state="SUPPORTED"))
+
+    def test_supported_card_requires_explicit_inspected_access_level(self):
+        card = dict(self.card, support_state="SUPPORTED",
+                    attribution_verification="VERIFIED",
+                    provenance="INDEPENDENTLY_RETRIEVED")
+        card.pop("access_level")
+        with self.assertRaises(ValueError):
+            research_memory.add_card(self.db, card)
+        card["access_level"] = "UNAVAILABLE"
+        with self.assertRaises(ValueError):
+            research_memory.add_card(self.db, card)
+        card["access_level"] = "PARTIAL_TEXT_INSPECTED"
+        research_memory.add_card(self.db, card)
+        self.assertEqual(
+            research_memory.search_cards(self.db, "Synthetic", "M1")[0]["support_state"],
+            "SUPPORTED")
+
+    def test_relative_source_path_stays_bound_to_original_file_across_working_directories(self):
+        import os
+        old_cwd = Path.cwd()
+        first = Path(self.tmp.name) / "first"
+        second = Path(self.tmp.name) / "second"
+        first.mkdir()
+        second.mkdir()
+        original = first / "paper.txt"
+        original.write_text("original source", encoding="utf-8")
+        (second / "paper.txt").write_text("a different file", encoding="utf-8")
+        try:
+            os.chdir(first)
+            research_memory.add_card(self.db, dict(self.card, source_path="paper.txt"))
+            saved_path = self.db.execute(
+                "SELECT source_path FROM cards WHERE card_id=?", (self.card["card_id"],)
+            ).fetchone()[0]
+            self.assertEqual(Path(saved_path), original.resolve())
+            os.chdir(second)
+            self.assertEqual(research_memory.refresh_stale(self.db, module_id="M1"), [])
+            original.write_text("revised original source", encoding="utf-8")
+            self.assertEqual(
+                research_memory.refresh_stale(self.db, module_id="M1"), ["S1-page2"])
+        finally:
+            os.chdir(old_cwd)
 
     def test_missing_database_is_not_silently_created_on_search(self):
         import io

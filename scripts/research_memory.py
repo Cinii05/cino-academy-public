@@ -66,12 +66,14 @@ def _validate(card: dict) -> dict:
             raise ValueError("Claim support cannot be accepted without verified source attribution")
         if card.get("provenance") != "INDEPENDENTLY_RETRIEVED":
             raise ValueError("Unverified user passages cannot establish publication claim support")
-        if card.get("access_level") in {"UNAVAILABLE", "METADATA_ONLY", "USER_SUMMARY_ONLY"}:
+        if card.get("access_level", "UNAVAILABLE") in {"UNAVAILABLE", "METADATA_ONLY", "USER_SUMMARY_ONLY"}:
             raise ValueError("Claim support needs inspected real source text")
     path = card.get("source_path", "")
     digest = card.get("source_sha256", "")
     if path and not Path(path).is_file():
         raise ValueError("Local source file not found")
+    if path:
+        path = str(Path(path).resolve(strict=True))
     if digest and (len(digest) != 64 or any(c not in "0123456789abcdef" for c in digest)):
         raise ValueError("Invalid SHA-256")
     if path:
