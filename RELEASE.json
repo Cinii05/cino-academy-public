@@ -1,19 +1,19 @@
 {
   "release": "1.4.1",
-  "status": "candidate-tested-pending-private-update",
-  "accepted": false,
+  "status": "private-release-created",
+  "accepted": true,
   "submitted_to_openai": false,
-  "published": false,
+  "published": true,
   "discoverability": "PRIVATE",
   "prepared_date": "2026-11-22",
-  "released_date": null,
+  "released_date": "2026-11-22",
   "source_branch": "max/academy-v141-routing-starters-20261122",
-  "source_commit_sha": null,
+  "source_commit_sha": "fd85288b2aa8c27d1a3b45b923d9c0cbe94341d5",
   "base_head_sha": "f9ac2418f509ebfdf7d6b777a4ffa91fb206ffb9",
   "legacy_plugin_id": "plugins_6ac4115e6c7081918cc4e7b0e898ac63",
   "legacy_plugin_access": "NOT_FOUND in current authenticated personal plugin account",
   "private_plugin_id": "plugins_6b021dda1a68819193db39b9eb7ec3e2",
-  "private_plugin_release_id": null,
+  "private_plugin_release_id": "pluginrel_6b02c74f4a548191a8924bc29d3abc82",
   "private_plugin_url": "https://chatgpt.com/plugins/plugins_6b021dda1a68819193db39b9eb7ec3e2",
   "skill_ids": [
     "cino-academy",
@@ -27,14 +27,14 @@
   "tests": {
     "v1_3_baseline": "57 local tests passed before Wave 2; PR #1 CI success",
     "wave2_final": "91/91 MSI tests PASS for v1.4.0, including synthetic two-page PDF",
-    "v1_4_1_candidate": "92/92 MSI tests PASS; new dissertation, consultancy, reflection and research-starter regression guard",
-    "github_ci": "SUCCESS for c173823: Actions run 45006244544, 91 tests, one optional Linux PDF integration skipped; passed on MSI",
-    "archive": "31 allowlisted skill/asset files; ZIP CRC/hash verified against final PR #2 GitHub Actions artifact",
+    "github_ci": "SUCCESS at fd85288: GitHub Actions run 45013712395, 92 tests, one optional Linux PDF integration skipped; passed on MSI",
+    "archive": "31 allowlisted files, CRC intact; CI ZIP SHA-256 8d889299b3c47a3ce5f252d286d4ff56d1fd5cbe5b86328b498d12e9136031e8",
     "previous_codex": "Three P2 findings fixed; numerical-sign bug fixed; disputed range parsing checked by MSI regression; all recorded in WAVE2_IMPLEMENTATION_20261122.md",
     "historical_marker_research": "Prior private Drive audit informed design; no private coursework copied into public repository or plugin",
     "blind_model_comparison": "NOT_RUN: independent real scored arms unavailable",
-    "plugin_source_verified": "Owner API returns version 1.4.0 and 32 stored source paths, including all six skills and four new v1.4 references",
-    "fresh_chat_skill_activation": "NOT_RUN: active chat skill registry may cache v1.3; open a new chat for runtime route test"
+    "plugin_source_verified": "Owner API returns private personal Academy v1.4.1 with six skills, task descriptions, and new assignment-research starter on both manifests",
+    "fresh_chat_skill_activation": "NOT_RUN: active chat skill registry may cache v1.3; open a new chat for runtime route test",
+    "v1_4_1_release": "92/92 MSI tests PASS, including two-page synthetic PDF and routing-discovery regression"
   },
   "unverified": [
     "Real model quality or marking-score improvement against v1.3/no plugin is untested",
@@ -43,5 +43,5 @@
     "New-chat plugin routing and live user-interaction smoke tests are not independently verified in this release"
   ],
   "previous_private_release_id": "pluginrel_6b02bde648d8819180609f103a584139",
-  "merge_sha": null
+  "merge_sha": "9d2ef96bb9aae18cdd2eb21abbb46a7a68e88d9e"
 }
