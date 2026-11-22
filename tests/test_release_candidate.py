@@ -70,6 +70,26 @@ class CandidateTests(unittest.TestCase):
             s=(SKILLS/k/'SKILL.md').read_text('utf-8').lower()
             self.assertIn('policy',s)
             self.assertIn('unknown',s)
+    def test_academic_task_routing_and_research_starter(self):
+        manifest=json.loads((ROOT/'plugin.json').read_text('utf-8'))
+        skill=(SKILLS/'cino-academy'/'SKILL.md').read_text('utf-8')
+        frontmatter=skill.split('---',2)[1].lower()
+        interface=manifest['extensions']['com.openai']['interface']
+        discovery=(manifest['description']+' '+interface['longDescription']).lower()
+        for phrase in ('dissertations','consultancy projects','reflective assignments'):
+            self.assertIn(phrase,frontmatter)
+            self.assertIn(phrase,discovery)
+        prompts=interface['defaultPrompt']
+        self.assertEqual(len(prompts),3)
+        self.assertTrue(any(
+            'research my assignment' in prompt.lower()
+            and 'ai-use rules' in prompt.lower()
+            and 'academic sources' in prompt.lower()
+            for prompt in prompts
+        ))
+        self.assertIn('unknown',skill.lower())
+        self.assertIn('genai',skill.lower())
+
     def test_openai_submission_metadata_limits(self):
         p=json.loads((ROOT/'plugin.json').read_text('utf-8'))
         ui=p['extensions']['com.openai']['interface']
