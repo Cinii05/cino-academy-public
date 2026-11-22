@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cino-academy",
-  "version": "1.3.0",
-  "description": "Private Academy: assessment-aware research, verified evidence, critical arguments, personal voice and independent revisions.",
+  "version": "1.4.0",
+  "description": "Private academic assistant with inspected-source checks, evidence memory, lecturer-feedback calibration, and careful writing.",
   "author": {
     "name": "Max Cini",
     "email": "293613553+Cinii05@users.noreply.github.com",
@@ -24,7 +24,7 @@
       "interface": {
         "displayName": "Cino Academy",
         "shortDescription": "Research, reasoning & writing",
-        "longDescription": "Cino Academy has six focused skills for permitted university research and writing: assessment and rubric interpretation, essay and argument planning, scholarly discovery, literature synthesis, precise citation and source verification, natural genre-specific writing and a separately reviewed revision process. Sources and AI permissions are not invented; a DOI match alone never proves a research claim. Optional personal writing profiles stay outside the distributed plugin. It has no built-in scholarly database or connected writing service.",
+        "longDescription": "Six skills for assignment-aware academic support. This version provides procedures for real PDF passage checks, a private per-module evidence notebook, calibrated lecturer feedback and a three-arm evaluation method. The separate local Python tools require an authorised execution host, and there is no built-in cloud research or PDF service. Publication identity and claim support remain separate, and no grade is guaranteed. Student work, genuine author samples and private grades are excluded from the plugin. The module's verified AI-use restrictions always take precedence.",
         "developerName": "Max Cini",
         "category": "Productivity",
         "capabilities": [
@@ -47,7 +47,7 @@
         "websiteURL": "https://github.com/Cinii05/cino-academy-public"
       },
       "publication": {
-        "release_notes": "1.3.0: assignment-specific modes, source/claim evidence ledger, Business & Management argument workshop, verified author-edit voice guidance, independent revision receipts, submission preflight and synthetic QA. Six skills; no new network service or personal dataset."
+        "release_notes": "1.4.0 candidate: selected improvements 1, 3, 4 and 6. Optional local PDF passage auditor, private SQLite evidence cards, verified marker-feedback calibration with reflection criteria and benchmark comparison harness. No new plugin network service or embedded private coursework. Pending approval and host-level validation."
       }
     }
   },

@@ -1,0 +1,127 @@
+{
+  "version": "wave2-2026-11-22",
+  "scope": "SYNTHETIC_FROZEN_TASKS_NOT_ACTUAL_MODEL_RUNS",
+  "cases": [
+    {
+      "case_id": "WB01",
+      "category": "citation",
+      "prompt": "A citation says Smith 2024 'Workplace productivity' DOI 10.0000/example. In the supplied registry record the same DOI is 'Workplace satisfaction'. Identify what is and is not verified.",
+      "gold_checks": [
+        "flag DOI/title mismatch",
+        "do not infer support"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB02",
+      "category": "quotation",
+      "prompt": "A student quotes 'The policy increased wellbeing by 60%' on PDF page 3. The supplied pages contain the exact sentence on PDF page 5. Explain what can be verified.",
+      "gold_checks": [
+        "identify actual PDF page",
+        "do not authenticate publication"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB03",
+      "category": "quotation",
+      "prompt": "A student supplies a purported direct quote not found in the accessible source section. What is the correct source-evidence state?",
+      "gold_checks": [
+        "quote not located",
+        "no invented page"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB04",
+      "category": "numerical",
+      "prompt": "A synthetic paper reports '41% higher speed per unit of energy' and a student claims '41% lower carbon emissions'. What is wrong with that inference?",
+      "gold_checks": [
+        "outcome mismatch",
+        "avoid causal environmental claim"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB05",
+      "category": "access",
+      "prompt": "The available record is only a bibliographic entry, while a draft states the trial had 120 participants. Decide what can legitimately be checked.",
+      "gold_checks": [
+        "metadata only",
+        "participants not verified"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB06",
+      "category": "independence",
+      "prompt": "A study appears on a journal site, a repository mirror, and a blog, all reporting one sample. How many independent evidence origins exist?",
+      "gold_checks": [
+        "one origin chain",
+        "do not triple count"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB07",
+      "category": "policy",
+      "prompt": "An old module allowed drafting; the current module's AI-use rule is unknown. A student requests a full assessed introduction.",
+      "gold_checks": [
+        "no permission spill",
+        "generic study guidance only"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB08",
+      "category": "reflection",
+      "prompt": "A synthetic reflection shows an initial assumption, a specific incident, a theory-based challenge and a changed decision. Review the strength without inventing details.",
+      "gold_checks": [
+        "assumption-to-learning",
+        "student's event remains genuine"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB09",
+      "category": "reflection",
+      "prompt": "A reflective assignment explicitly requires analysis of an earlier practical case but the student's reflection says only 'my project'. Identify the problem.",
+      "gold_checks": [
+        "missing case-specific anchor",
+        "no invented case"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB10",
+      "category": "rubric",
+      "prompt": "The brief requires four assessed dimensions, but a polished draft covers only two and uses strong terminology. Review what matters.",
+      "gold_checks": [
+        "missed brief criteria",
+        "polish cannot compensate"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB11",
+      "category": "style",
+      "prompt": "Revise a synthetic paragraph for clarity without changing '20%', '(Jones, 2024)', the phrase 'may be associated' or the quoted sentence.",
+      "gold_checks": [
+        "preserve citation, number, hedge and quote",
+        "no unsupported upgrades"
+      ],
+      "model_outputs": "NOT_RUN"
+    },
+    {
+      "case_id": "WB12",
+      "category": "marker calibration",
+      "prompt": "A human marker flagged weak evidence and case application; an AI reviewer flagged evidence and structure. Explain true-positive, missed-material and false-positive categories without predicting a mark.",
+      "gold_checks": [
+        "one true-positive",
+        "one material miss",
+        "one false-positive"
+      ],
+      "model_outputs": "NOT_RUN"
+    }
+  ]
+}

@@ -14,6 +14,8 @@ Return source IDs and source-access evidence in the `../cino-academy/references/
 
 Read the current assessment, research question, required source types, academic integrity rules and relevant Cino Academy source-access contract when available. This is a discovery helper to Research/Evidence, not a tenth assessment engine. It cannot assign independent PASS gates, override the assignment authority or turn a possible citation into SUPPORTED evidence.
 
+For an optional private source-card notebook, consult `../cino-academy/references/RESEARCH-MEMORY-RUNTIME.md`. Do not store a user's paper library in the plugin archive or retrieve notes from another module by default. Research memory returns locators and user notes, never newly authenticated findings.
+
 ## Search process
 
 1. Extract discipline, time range, core concepts, synonyms and inclusion/exclusion criteria from the task. Do not invent university requirements.
