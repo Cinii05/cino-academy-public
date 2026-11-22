@@ -1,27 +1,21 @@
-# Cino Academy
+# Cino Academy 1.3.0 - private release candidate
 
-Cino Academy is a standalone evidence-grounded academic workflow plugin.
+Six independent skills built on the original nine-stage Academy contract:
+- Cino Academy: assessment permissions, rubric/brief and source-controlled full workflow.
+- Cino Essay Planner: argument outline and bounded Socratic challenge.
+- Cino Literature Scout: genuine source discovery and access reporting.
+- Cino Literature Synthesiser: contrasts, method limits and independent evidence.
+- Cino Reference Auditor: metadata checks distinct from claim/passage support.
+- Cino Writing Master: genre-sensitive author voice, editing and document review.
 
-Current accepted release: **v1.1.3**
+New source and author-voice methods are reference guidance. The standard
+portable ChatGPT ZIP does not execute the local test scripts or consult a
+research index automatically. A source or browser check is verified only
+when an actual tool successfully performed it. Individual user writing
+profiles, university work and credentials are excluded from this archive.
 
-Core workflow:
+The Academy operates within the current verified module-specific GenAI
+policy and does not guarantee a grade or an AI-detector outcome.
 
-Assignment → Rubric → Research/Evidence → Argument → Draft → Voice → MarkerReview → Revision → First+
-
-## Release evidence
-
-The accepted v1.1.3 release preserves the accepted nine-stage engine and adds source-access precision, submission preflight, and Academic Twin contamination controls.
-
-Final v1.1.2 public package SHA-256:
-
-`09CC3F2ECBC710A3C80F57E30C333999690565EA3D9810463DE26D6EBDDB4E3A`
-
-## Data boundary
-
-Do not commit:
-- Academic Twin source corpus or personal coursework
-- university/student identifiers
-- client evidence or real project material
-- real-run assignment workspaces
-- credentials, tokens, auth files, or connector data
-
+This is a separate Academy project; no TMC or Motion source is changed.
+Source: https://github.com/Cinii05/cino-academy-public

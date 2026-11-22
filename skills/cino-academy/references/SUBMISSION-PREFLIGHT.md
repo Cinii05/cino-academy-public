@@ -1,5 +1,8 @@
 # Submission-readiness preflight
 
+For any assessed revision, use `REVISION-RECEIPT.md`: inspect the exact current draft, re-check affected evidence/citations/numbers, and require independent reviewer closure. Before a DOCX/PDF is declared technically checked, verify the **real exported bytes, pages and visible layout**, not just draft text. If native rendering is unavailable, report `NOT_VERIFIED` for rendering rather than claiming finished formatting.
+
+
 Run this preflight before calling any artifact submission-ready. It does not override assessment-specific requirements.
 
 ## Required checks

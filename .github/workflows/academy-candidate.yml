@@ -1,0 +1,39 @@
+name: Academy candidate acceptance
+on:
+  pull_request:
+    paths:
+      - 'plugin.json'
+      - 'assets/**'
+      - 'skills/**'
+      - 'scripts/build_package.py'
+      - 'tests/**'
+      - '.github/workflows/academy-candidate.yml'
+  push:
+    branches: [main, 'max/academy-research-quality-*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package-validation:
+    name: Skills-only ZIP and metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build reproducible ZIP
+        run: python scripts/build_package.py
+      - name: Test all candidate contracts and package
+        run: python -m unittest discover -s tests -v
+      - name: Upload review-only artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cino-academy-review-candidate
+          path: |
+            dist/*.zip
+            dist/CANDIDATE-MANIFEST.json
+          if-no-files-found: error
+          retention-days: 7

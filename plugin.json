@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cino-academy",
-  "version": "1.1.3",
-  "description": "Evidence-grounded academic workflow for university assignments, research, argument design, drafting, review, revision, Academic Twin voice preservation, and submission preparation.",
+  "version": "1.3.0",
+  "description": "Private Academy: assessment-aware research, verified evidence, critical arguments, personal voice and independent revisions.",
   "author": {
     "name": "Max Cini",
     "email": "293613553+Cinii05@users.noreply.github.com",
@@ -10,30 +10,32 @@
   },
   "keywords": [
     "academic",
-    "university",
     "research",
+    "university",
     "evidence",
+    "literature-review",
+    "citation-verification",
+    "essay-planning",
     "writing",
-    "review",
-    "citations"
+    "APA7"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Cino Academy",
-        "shortDescription": "Academic research & review",
-        "longDescription": "Evidence-grounded academic workflow for briefs, rubrics, research, argument design, drafting, voice preservation, review, revision, and submission preparation. It respects the applicable academic-integrity and GenAI policy and does not operate a publisher-owned external data service.",
+        "shortDescription": "Research, reasoning & writing",
+        "longDescription": "Cino Academy has six focused skills for permitted university research and writing: assessment and rubric interpretation, essay and argument planning, scholarly discovery, literature synthesis, precise citation and source verification, natural genre-specific writing and a separately reviewed revision process. Sources and AI permissions are not invented; a DOI match alone never proves a research claim. Optional personal writing profiles stay outside the distributed plugin. It has no built-in scholarly database or connected writing service.",
         "developerName": "Max Cini",
-        "category": "Education & Research",
+        "category": "Productivity",
         "capabilities": [
           "Interactive",
           "Read",
           "Write"
         ],
         "defaultPrompt": [
-          "Analyse this assignment brief and rubric.",
-          "Research this assignment with evidence and provenance.",
-          "Review my draft against the rubric and evidence."
+          "Check my assignment brief and marking criteria before giving advice.",
+          "Challenge my argument and identify what the evidence actually proves.",
+          "Check the references in my draft and preserve my genuine writing style."
         ],
         "logo": "./assets/icon.svg",
         "composerIcon": "./assets/icon.svg",
@@ -45,7 +47,7 @@
         "websiteURL": "https://github.com/Cinii05/cino-academy-public"
       },
       "publication": {
-        "release_notes": "Cino Academy 1.1.3 updates public-directory metadata and publisher links while preserving the accepted 1.1 academic workflow and skill behavior."
+        "release_notes": "1.3.0: assignment-specific modes, source/claim evidence ledger, Business & Management argument workshop, verified author-edit voice guidance, independent revision receipts, submission preflight and synthetic QA. Six skills; no new network service or personal dataset."
       }
     }
   },
