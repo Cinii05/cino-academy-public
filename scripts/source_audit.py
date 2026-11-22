@@ -15,18 +15,18 @@ from pathlib import Path
 MAX_BYTES = 32 * 1024 * 1024
 MAX_PAGES = 300
 MAX_CLAIMS = 100
-NUMBERS = re.compile(r"(?<!\w)(?:[£$])?\d[\d,]*(?:\.\d+)?\s*%?(?!\w)")
+NUMBERS = re.compile(r"(?<!\w)[+\-\u2212]?\s*(?:[£$])?\d[\d,]*(?:\.\d+)?\s*%?(?!\w)")
 
 class SourceAuditError(ValueError):
     pass
 
 def _norm(value: str) -> str:
     s = unicodedata.normalize("NFKC", value or "").replace("\u00ad", "")
-    s = s.replace("\u2010", "-").replace("\u2011", "-").replace("\u2013", "-")
+    s = s.replace("\u2010", "-").replace("\u2011", "-").replace("\u2013", "-").replace("\u2212", "-")
     return " ".join(s.split()).casefold()
 
 def numbers(value: str) -> set[str]:
-    return {re.sub(r"\s+", "", x).replace(",", "") for x in NUMBERS.findall(value)}
+    return {re.sub(r"\s+", "", x).replace(",", "").replace("\u2212", "-") for x in NUMBERS.findall(value)}
 
 def read_pdf(path: Path) -> tuple[list[str], str]:
     path = Path(path)

@@ -51,6 +51,28 @@ class SourceVerificationTests(unittest.TestCase):
         self.assertEqual(r["numeric_check"],"REVIEW_REQUIRED")
         self.assertEqual(r["numbers_in_claim_not_in_supplied_quote"],["35%"])
 
+    def test_numeric_audit_flags_reversed_sign_in_percentages_and_correlations(self):
+        for reported, claimed in (("-20%", "20%"), ("−20%", "20%"),
+                                  ("-0.6", "0.6"), ("−0.6", "0.6")):
+            with self.subTest(reported=reported, claimed=claimed):
+                x = self.case()
+                x["quoted_passage"] = "Result: " + reported
+                x["claim_text"] = "Result: " + claimed
+                result = source_audit.audit_claim(x, [x["quoted_passage"]])
+                self.assertEqual(result["numeric_check"], "REVIEW_REQUIRED")
+                self.assertEqual(result["numbers_in_claim_not_in_supplied_quote"],
+                                 [claimed])
+
+    def test_unicode_minus_and_ascii_minus_compare_as_the_same_negative_value(self):
+        self.assertEqual(source_audit.numbers("−20% and -0.6"),
+                         {"-20%", "-0.6"})
+        x = self.case()
+        x["quoted_passage"] = "Effect was -20%."
+        x["claim_text"] = "Effect was −20%."
+        result = source_audit.audit_claim(x, ["Effect was −20%."])
+        self.assertEqual(result["numeric_check"], "NO_MISSING_TOKENS_FOUND")
+        self.assertEqual(result["quote_check"], "EXACT_QUOTE_LOCATED")
+
     def test_absent_quote_does_not_invent_an_evidence_locator(self):
         x=self.case()
         x["quoted_passage"]=""
