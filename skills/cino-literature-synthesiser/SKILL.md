@@ -14,6 +14,8 @@ Use `../cino-academy/references/EVIDENCE-LEDGER.md` for source and passage prove
 
 Read the actual research question, assignment or research protocol, source records and access notes. Apply Academy's GenAI gate: when policy is unknown, provide general source-evaluation methods rather than an assessment-specific matrix; when all AI assistance is expressly prohibited, no assignment-specific synthesis or feedback; when a verified policy allows bounded research support, produce only those allowed outputs. Ask for inaccessible source text rather than pretending to have read it.
 
+If a real local evidence notebook is available, retrieve only the authorised module's cards under `../cino-academy/references/RESEARCH-MEMORY-RUNTIME.md`. Cached quotes and model descriptions remain subject to original passage checks and origin-chain grouping.
+
 ## Process
 
 1. Fix the question, subject, population, time and selection scope. Distinguish a narrative comparison from a systematic review; never claim exhaustive PRISMA coverage without a registered, reproducible search/screening record.

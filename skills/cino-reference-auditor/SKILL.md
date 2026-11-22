@@ -14,6 +14,8 @@ Apply the five checks in `../cino-academy/references/EVIDENCE-LEDGER.md`: identi
 
 Follow the precise citation style required by the current module, journal or client. If unspecified, present a provisional style suggestion rather than presuming APA, Harvard or another convention. This helper reports findings to Academy's Research/Evidence Engine and cannot unilaterally promote a Claim status to SUPPORTED.
 
+For source-to-passage checks, consult `../cino-academy/references/SOURCE-AUDIT-RUNTIME.md` as well as the existing evidence ledger. A machine-found quote in a PDF does not prove the publication's authenticity or support the student's claim. If an authorised local host has pypdf and the separate `scripts/source_audit.py`, use actual tool results; otherwise keep verification NOT_VERIFIED and do not pretend the script executed.
+
 ## Workflow
 
 1. Inspect the actual draft, in-text citations and complete bibliography. Pair every in-text citation with the intended entry; identify duplicates, orphans, missing entries and inconsistent author-date keys.

@@ -48,6 +48,8 @@ When the user asks what the literature collectively shows, how researchers disag
 
 ## Evidence and source access
 
+For a **real source audit**, read `references/SOURCE-AUDIT-RUNTIME.md` and distinguish a verified literal quotation in a local PDF from publication authentication and semantic claim support. The repository's optional local script is not automatically callable from a ChatGPT skill. For a durable private reading notebook use `references/RESEARCH-MEMORY-RUNTIME.md` and preserve per-module separation and stale-source checks.
+
 When a claim or citation is material, use the `references/EVIDENCE-LEDGER.md` claim-to-passage handoff alongside SOURCE-ACCESS; a DOI/title/author/year identity check cannot prove substantive claim support. Do not pretend a local script is installed in the ChatGPT plugin; report actual tool use and missing access.
 
 
@@ -74,6 +76,8 @@ Academic Twin is optional and user-specific. With no valid profile, use a neutra
 Prior coursework is style evidence only: it must not silently donate claims, citations, factual mistakes, personal facts or assignment-specific wording. Voice transforms must preserve substantive claims, qualification boundaries, citations, numerical facts and paragraph purposes. Read `references/ACADEMIC-TWIN.md` when building or applying a profile.
 
 ## Review and revision
+
+For feedback calibrated against real marking, read `references/MARKER-CALIBRATION.md` and compare findings to independently verified marker observations rather than inventing grade predictions. This includes a separate reflection review pattern based on documented **private** historical feedback: actual experience, challenged assumptions, changed reasoning, named case application and future decisions. Use the pattern only for genuinely reflective tasks, never import past module-specific requirements or private essay content. For controlled comparative testing read `references/BENCHMARK-PROTOCOL.md`; model quality comparisons require actual independently reviewed runs.
 
 Use `references/ARGUMENT-WORKSHOP.md` when a learner needs genuine counterarguments, Business/Management application and targeted Socratic questions. Use `references/REVISION-RECEIPT.md` for exact-current-draft findings, user choices and independent closure; avoid repeating edits without improvement. For academic style, `cino-writing-master/references/VOICE-LEARNING.md` specifies consented human edits, genre separation and held-out checks.
 

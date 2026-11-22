@@ -38,7 +38,7 @@ class PrivateArchiveSafety(unittest.TestCase):
     def test_all_six_skills_and_minimal_metadata(self):
         found = {x.split("/")[1] for x in self.names if re.fullmatch(r"skills/[^/]+/SKILL.md", x)}
         self.assertEqual(found, SKILLS)
-        self.assertEqual(META["version"], "1.3.0")
+        self.assertEqual(META["version"], "1.4.0")
         self.assertNotIn("mcpServers", META)
 
     def test_no_user_samples_or_account_material(self):
