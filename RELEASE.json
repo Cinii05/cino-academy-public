@@ -26,7 +26,7 @@
   "public_zip_sha256": "0656c9d88c25d2113d56f1499981b3cb7b0df8e482d62b20a179ec33b3460840",
   "tests": {
     "v1_3_baseline": "57/57 local tests passed before Wave 2",
-    "wave2_deterministic": "26/26 Wave 2 tests PASS; 83/83 full MSI suite PASS including privacy/package checks",
+    "wave2_deterministic": "29/29 Wave 2 tests PASS; 86/86 full MSI suite PASS including privacy/package checks",
     "pdf_integration": "2-page synthetic PDF extracted on MSI with installed pypdf/reportlab",
     "real_marked_essays": "Historical private Drive audit inspected; no private content copied to repo",
     "blind_model_comparison": "NOT_RUN: needs actual independently reviewed arms",

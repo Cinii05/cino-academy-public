@@ -152,6 +152,8 @@ def main() -> int:
     ap.add_argument("--replace", action="store_true")
     args = ap.parse_args()
     try:
+        if not args.add and not args.db.is_file():
+            raise ValueError("Existing research database not found; refusing to create an empty result")
         with connect(args.db) as con:
             if args.add:
                 answer = add_card(con, json.loads(args.add.read_text("utf-8")), replace=args.replace)

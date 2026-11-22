@@ -43,7 +43,12 @@ def read_pdf(path: Path) -> tuple[list[str], str]:
         reader = PdfReader(path, strict=False)
         if reader.is_encrypted or len(reader.pages) > MAX_PAGES:
             raise SourceAuditError("Encrypted or over 300 PDF pages")
-        pages = [(p.extract_text() or "")[:500000] for p in reader.pages]
+        pages = []
+        for page in reader.pages:
+            extracted = page.extract_text() or ""
+            if len(extracted) > 500000:
+                raise SourceAuditError("PDF page extraction exceeds local safety limit")
+            pages.append(extracted)
     except SourceAuditError:
         raise
     except Exception as exc:
@@ -82,7 +87,7 @@ def audit_claim(claim: dict, pages: list[str]) -> dict:
         "numbers_in_claim_not_in_supplied_quote": missing,
         "numeric_check": "REVIEW_REQUIRED" if missing else "NO_MISSING_TOKENS_FOUND",
         "claim_support_state": "UNVERIFIED", # semantic interpretation never automatic
-        "source_access": "PARTIAL_TEXT_INSPECTED" if matched else "UNVERIFIED",
+        "source_access": "PARTIAL_TEXT_INSPECTED" if any(p.strip() for p in pages) else "UNAVAILABLE",
         "publication_attribution": "NOT_VERIFIED", # a user-provided local PDF is not authenticated
         "notes": [
             "PDF page index is not necessarily the printed page number.",

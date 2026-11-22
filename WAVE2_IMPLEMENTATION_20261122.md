@@ -34,7 +34,7 @@ Only the four owner-selected improvements have been added: (1) real source-to-pa
 
 ## Verification and test boundaries
 - Baseline v1.3: 57 local tests green.
-- Wave2 functional tests: 26/26 PASS including the 12-case frozen benchmark inventory; integrated full suite: 83/83 PASS on MSI.
+- Wave2 functional tests: 29/29 PASS including the 12-case frozen benchmark inventory; integrated full suite: 86/86 PASS on MSI.
 - Integrated local tests and ZIP integrity passed for the current worktree; GitHub CI must be rerun against the final commit before accepting the release.
 - Archive privacy, schema, deterministic ZIP, file integrity and existing academic policy tests remain mandatory.
 - Independent model A/B/C comparison with real anonymised prompts and verified human judgements is NOT_RUN; no paid model was invoked.
@@ -50,3 +50,9 @@ Only the four owner-selected improvements have been added: (1) real source-to-pa
 - Model comparator: py -3 scripts/eval_academy.py --results <real-human-adjudicated-three-arm-runs.json>
 
 All input paths must refer to specifically approved files; never process unrelated client/private files or silently copy the output into Drive. Never install unreviewed dependencies.
+
+## Post-CI code review improvements
+- Corrected source_audit output to use the formal FULL/PARTIAL/UNAVAILABLE access vocabulary, never an invented access status. PDF page extraction now rejects overlong text instead of silently truncating it.
+- Searching an absent research database now fails visibly without silently creating an empty, misleading SQLite file.
+- Marker calibration requires an auditable source locator for claimed verified human feedback. The comparator now requires distinct generator and reviewer identities on each model arm.
+- Added negative tests for each issue: final local suite 86/86 PASS; CI must be rerun on the updated exact commit.

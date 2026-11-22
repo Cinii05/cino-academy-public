@@ -41,6 +41,7 @@ class SourceVerificationTests(unittest.TestCase):
         x["quoted_passage"]="It proved 99% of people improved"
         a=source_audit.audit_claim(x,self.PAGES)
         self.assertEqual(a["quote_check"],"QUOTE_NOT_LOCATED")
+        self.assertEqual(a["source_access"],"PARTIAL_TEXT_INSPECTED")
         self.assertEqual(a["claim_support_state"],"UNVERIFIED")
 
     def test_claim_number_not_in_quote_requires_review(self):
@@ -60,6 +61,7 @@ class SourceVerificationTests(unittest.TestCase):
     def test_scanned_pdf_text_requirement_no_ocr_guess(self):
         r=source_audit.audit_claim(self.case(),["",""])
         self.assertEqual(r["quote_check"],"NO_EXTRACTABLE_TEXT")
+        self.assertEqual(r["source_access"],"UNAVAILABLE")
         self.assertEqual(r["claim_support_state"],"UNVERIFIED")
 
     def test_invalid_declared_page_rejected(self):
@@ -100,6 +102,7 @@ class SourceVerificationTests(unittest.TestCase):
 class MarkerCalibrationTests(unittest.TestCase):
     def sample(self, **overrides):
         x={"sample_id":"fake01","human_feedback_verified":True,
+           "human_feedback_locator":"synthetic-gold-fixture-01",
            "human_findings":[{"criterion":"brief_compliance","severity":"material"},
                              {"criterion":"critical_evaluation","severity":"material"}],
            "academy_findings":[{"criterion":"brief_compliance","severity":"material"},
@@ -115,6 +118,10 @@ class MarkerCalibrationTests(unittest.TestCase):
     def test_refuses_unverified_marker_labels(self):
         with self.assertRaises(ValueError):
             marker_calibration.compare_sample(self.sample(human_feedback_verified=False))
+
+    def test_marker_locator_required_even_when_marked_verified(self):
+        with self.assertRaises(ValueError):
+            marker_calibration.compare_sample(self.sample(human_feedback_locator=""))
 
     def test_checks_severity_not_just_label_presence(self):
         x=self.sample(academy_findings=[{"criterion":"brief_compliance","severity":"minor"}])
@@ -168,6 +175,18 @@ class ResearchMemoryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             research_memory.add_card(self.db,dict(self.card,support_state="SUPPORTED"))
 
+    def test_missing_database_is_not_silently_created_on_search(self):
+        import io
+        from contextlib import redirect_stderr
+        from unittest.mock import patch
+        absent=Path(self.tmp.name)/"not_created.db"
+        with patch.object(sys,"argv",["research_memory","--db",str(absent),
+                                       "--search","claim","--module-id","M1"]):
+            with redirect_stderr(io.StringIO()):
+                status=research_memory.main()
+        self.assertEqual(status,2)
+        self.assertFalse(absent.exists())
+
     def test_file_sha_invalidation(self):
         pdf=Path(self.tmp.name)/"source.txt"
         pdf.write_text("source edition one",encoding="utf-8")
@@ -191,6 +210,7 @@ class ResearchMemoryTests(unittest.TestCase):
 class BenchmarkHarnessTests(unittest.TestCase):
     def outcome(self,passed=True):
         return {"human_verified":True,"reviewer_id":"human-reviewer-synthetic",
+                "generator_id":"generator-synthetic",
                 "response_sha256":"a"*64,"ratings":{k:passed for k in eval_academy.DIMENSIONS}}
 
     def test_all_three_genuinely_labelled_arms_required(self):
@@ -207,6 +227,15 @@ class BenchmarkHarnessTests(unittest.TestCase):
             "no_plugin":self.outcome(False),"academy_v1_3":self.outcome(True),
             "academy_candidate":self.outcome(True)}}
         case["outcomes"]["academy_candidate"]["human_verified"]=False
+        with self.assertRaises(eval_academy.BenchmarkError):
+            eval_academy.score_suite({"cases":[case]})
+
+    def test_model_cannot_grade_its_own_output(self):
+        out=self.outcome(True)
+        out["reviewer_id"]=out["generator_id"]
+        case={"case_id":"C1","frozen_input_sha256":"b"*64,"outcomes":{
+            "no_plugin":self.outcome(False),"academy_v1_3":self.outcome(True),
+            "academy_candidate":out}}
         with self.assertRaises(eval_academy.BenchmarkError):
             eval_academy.score_suite({"cases":[case]})
 

@@ -30,6 +30,8 @@ def _labels(findings: list[dict], name: str) -> dict[str, str]:
 def compare_sample(sample: dict) -> dict:
     if not sample.get("sample_id") or not sample.get("human_feedback_verified"):
         raise ValueError("A sample ID and independently VERIFIED marker feedback are required")
+    if not isinstance(sample.get("human_feedback_locator"), str) or not sample["human_feedback_locator"].strip():
+        raise ValueError("Verified marker feedback needs an auditable local/document locator")
     truth = _labels(sample.get("human_findings"), "human")
     candidate = _labels(sample.get("academy_findings"), "academy")
     correct = sorted(set(truth) & set(candidate))

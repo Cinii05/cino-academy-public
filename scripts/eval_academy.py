@@ -35,6 +35,8 @@ def score_suite(suite: dict) -> dict:
             row = outcomes[arm]
             if row.get("human_verified") is not True or not row.get("reviewer_id"):
                 raise BenchmarkError(f"{case['case_id']}:{arm}: independently verified label missing")
+            if not row.get("generator_id") or row["generator_id"] == row["reviewer_id"]:
+                raise BenchmarkError(f"{case['case_id']}:{arm}: independent reviewer not established")
             if not row.get("response_sha256") or len(row["response_sha256"]) != 64:
                 raise BenchmarkError("Actual model response SHA-256 required")
             marks = row.get("ratings")
