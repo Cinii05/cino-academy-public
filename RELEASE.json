@@ -1,19 +1,19 @@
 {
   "release": "1.4.0",
-  "status": "candidate-local-qa-passed-pending-independent-review",
-  "accepted": false,
+  "status": "private-release-created",
+  "accepted": true,
   "submitted_to_openai": false,
-  "published": false,
+  "published": true,
   "discoverability": "PRIVATE",
   "prepared_date": "2026-11-22",
-  "released_date": "2026-11-21",
+  "released_date": "2026-11-22",
   "source_branch": "max/academy-source-marker-memory-evals-20261122",
-  "source_commit_sha": "1bb75c43b8ed7b0d198e5d67bf11d24538ff3d6a",
-  "base_head_sha": "a1bbe87519052d5a0347e3e66670f127cb68cb92",
+  "source_commit_sha": "c17382386f3022a73561af52891d2a56ba890126",
+  "base_head_sha": "561cfa2b4b4aef19d0977a308770ae6a84963bc4",
   "legacy_plugin_id": "plugins_6ac4115e6c7081918cc4e7b0e898ac63",
   "legacy_plugin_access": "NOT_FOUND in current authenticated personal plugin account",
   "private_plugin_id": "plugins_6b021dda1a68819193db39b9eb7ec3e2",
-  "private_plugin_release_id": null,
+  "private_plugin_release_id": "pluginrel_6b02bde648d8819180609f103a584139",
   "private_plugin_url": "https://chatgpt.com/plugins/plugins_6b021dda1a68819193db39b9eb7ec3e2",
   "skill_ids": [
     "cino-academy",
@@ -25,18 +25,22 @@
   ],
   "public_zip_sha256": "0656c9d88c25d2113d56f1499981b3cb7b0df8e482d62b20a179ec33b3460840",
   "tests": {
-    "v1_3_baseline": "57/57 local tests passed before Wave 2",
-    "wave2_deterministic": "29/29 Wave 2 tests PASS; 86/86 full MSI suite PASS including privacy/package checks",
-    "pdf_integration": "2-page synthetic PDF extracted on MSI with installed pypdf/reportlab",
-    "real_marked_essays": "Historical private Drive audit inspected; no private content copied to repo",
-    "blind_model_comparison": "NOT_RUN: needs actual independently reviewed arms",
-    "chatgpt_plugin_activation": "NOT_RUN: candidate not uploaded"
+    "v1_3_baseline": "57 local tests passed before Wave 2; PR #1 CI success",
+    "wave2_final": "91/91 MSI tests PASS, including synthetic two-page PDF",
+    "github_ci": "SUCCESS for c173823: Actions run 45006244544, 91 tests, one optional Linux PDF integration skipped; passed on MSI",
+    "archive": "31 allowlisted skill/asset files; ZIP CRC/hash verified against final PR #2 GitHub Actions artifact",
+    "previous_codex": "Three P2 findings fixed; numerical-sign bug fixed; disputed range parsing checked by MSI regression; all recorded in WAVE2_IMPLEMENTATION_20261122.md",
+    "historical_marker_research": "Prior private Drive audit informed design; no private coursework copied into public repository or plugin",
+    "blind_model_comparison": "NOT_RUN: independent real scored arms unavailable",
+    "plugin_source_verified": "Owner API returns version 1.4.0 and 32 stored source paths, including all six skills and four new v1.4 references",
+    "fresh_chat_skill_activation": "NOT_RUN: active chat skill registry may cache v1.3; open a new chat for runtime route test"
   },
   "unverified": [
-    "Model-produced feedback not blindly benchmarked against v1.3/no plugin",
-    "Marker agreement on genuine coursework needs independently labelled private runs",
-    "Publisher authenticity cannot be established from uploaded PDF alone",
-    "Private plugin cannot execute MSI scripts without connected authorised host"
+    "Real model quality or marking-score improvement against v1.3/no plugin is untested",
+    "Publisher authenticity and semantic source support are not proved by PDF text checks",
+    "Local Python tools on MSI are not bundled in the six-skill plugin; connection and access required when used",
+    "New-chat plugin routing and live user-interaction smoke tests are not independently verified in this release"
   ],
-  "previous_private_release_id": "pluginrel_6b021ddba2fc8191a9651cce958f8e80"
+  "previous_private_release_id": "pluginrel_6b021ddba2fc8191a9651cce958f8e80",
+  "merge_sha": "5449f1c7ebe2bdcff010d982cee764c9204b1430"
 }
