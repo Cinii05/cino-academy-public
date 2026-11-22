@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cino-academy",
-  "version": "1.4.0",
-  "description": "Private academic assistant with inspected-source checks, evidence memory, lecturer-feedback calibration, and careful writing.",
+  "version": "1.4.1",
+  "description": "Private Academy for dissertations, consultancy projects, reflective assignments, verified research and marker feedback.",
   "author": {
     "name": "Max Cini",
     "email": "293613553+Cinii05@users.noreply.github.com",
@@ -17,14 +17,17 @@
     "citation-verification",
     "essay-planning",
     "writing",
-    "APA7"
+    "APA7",
+    "dissertations",
+    "consultancy-projects",
+    "reflective-assignments"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Cino Academy",
         "shortDescription": "Research, reasoning & writing",
-        "longDescription": "Six skills for assignment-aware academic support. This version provides procedures for real PDF passage checks, a private per-module evidence notebook, calibrated lecturer feedback and a three-arm evaluation method. The separate local Python tools require an authorised execution host, and there is no built-in cloud research or PDF service. Publication identity and claim support remain separate, and no grade is guaranteed. Student work, genuine author samples and private grades are excluded from the plugin. The module's verified AI-use restrictions always take precedence.",
+        "longDescription": "Six skills for dissertations, consultancy projects, reflective assignments and other assignment-aware academic support. This version provides procedures for real PDF passage checks, a private per-module evidence notebook, calibrated lecturer feedback and a three-arm evaluation method. The separate local Python tools require an authorised execution host, and there is no built-in cloud research or PDF service. Publication identity and claim support remain separate, and no grade is guaranteed. Student work, genuine author samples and private grades are excluded from the plugin. The module's verified AI-use restrictions always take precedence.",
         "developerName": "Max Cini",
         "category": "Productivity",
         "capabilities": [
@@ -35,7 +38,7 @@
         "defaultPrompt": [
           "Check my assignment brief and marking criteria before giving advice.",
           "Challenge my argument and identify what the evidence actually proves.",
-          "Check the references in my draft and preserve my genuine writing style."
+          "Help me research my assignment: check the brief and AI-use rules, then find and assess academic sources."
         ],
         "logo": "./assets/icon.svg",
         "composerIcon": "./assets/icon.svg",
@@ -47,7 +50,7 @@
         "websiteURL": "https://github.com/Cinii05/cino-academy-public"
       },
       "publication": {
-        "release_notes": "1.4.0 candidate: selected improvements 1, 3, 4 and 6. Optional local PDF passage auditor, private SQLite evidence cards, verified marker-feedback calibration with reflection criteria and benchmark comparison harness. No new plugin network service or embedded private coursework. Pending approval and host-level validation."
+        "release_notes": "1.4.1: restores dissertation, consultancy and reflective-assignment discovery wording and adds an assignment-research starter. The six skills and local tools are unchanged; no new access, service or personal data."
       }
     }
   },

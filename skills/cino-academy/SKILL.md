@@ -1,6 +1,6 @@
 ---
 name: cino-academy
-description: Use this skill for university coursework or assessed writing when instructions, assessment rubrics, academic integrity or GenAI rules govern what is permitted; factual scholarly claim/evidence decisions; unsafe requests to fabricate research, reflection, quotations, citations or first-person experience; and Academy Academic Twin policy. Invoke for unknown or restrictive assessed-writing policies to assess boundaries before drafting. For permitted editing or correspondence tasks, route to cino-writing-master; for source discovery, reference verification and essay plans, delegate to the bounded helper without waiving Academy authority.
+description: Use this skill for dissertations, consultancy projects, reflective assignments and other university coursework or assessed writing when instructions, assessment rubrics, academic integrity or GenAI rules govern what is permitted; factual scholarly claim/evidence decisions; unsafe requests to fabricate research, reflection, quotations, citations or first-person experience; and Academy Academic Twin policy. Invoke for unknown or restrictive assessed-writing policies to assess boundaries before drafting. For permitted editing or correspondence tasks, route to cino-writing-master; for source discovery, reference verification and essay plans, delegate to the bounded helper without waiving Academy authority.
 ---
 
 # Cino Academy
