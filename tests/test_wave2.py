@@ -73,6 +73,21 @@ class SourceVerificationTests(unittest.TestCase):
         self.assertEqual(result["numeric_check"], "NO_MISSING_TOKENS_FOUND")
         self.assertEqual(result["quote_check"], "EXACT_QUOTE_LOCATED")
 
+    def test_numeric_range_hyphen_is_not_a_negative_sign(self):
+        for quote in ("10-20%", "10−20%"):
+            with self.subTest(quote=quote):
+                self.assertEqual(source_audit.numbers(quote), {"10", "20%"})
+                x = self.case()
+                x["quoted_passage"] = "Interval: " + quote
+                x["claim_text"] = "Upper endpoint: 20%"
+                self.assertEqual(
+                    source_audit.audit_claim(x, [x["quoted_passage"]])["numeric_check"],
+                    "NO_MISSING_TOKENS_FOUND")
+                x["claim_text"] = "Upper endpoint: -20%"
+                self.assertEqual(
+                    source_audit.audit_claim(x, [x["quoted_passage"]])["numeric_check"],
+                    "REVIEW_REQUIRED")
+
     def test_absent_quote_does_not_invent_an_evidence_locator(self):
         x=self.case()
         x["quoted_passage"]=""

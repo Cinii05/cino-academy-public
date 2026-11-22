@@ -56,3 +56,28 @@ All input paths must refer to specifically approved files; never process unrelat
 - Searching an absent research database now fails visibly without silently creating an empty, misleading SQLite file.
 - Marker calibration requires an auditable source locator for claimed verified human feedback. The comparator now requires distinct generator and reviewer identities on each model arm.
 - Added negative tests for each issue: final local suite 86/86 PASS; CI must be rerun on the updated exact commit.
+
+## Independent Codex findings and verified repairs — 22 November 2026
+
+Independent Codex review against PR #2 initially identified three P2 correctness defects. The following scoped fixes are committed on the existing v1.4 feature branch, not merged into main or deployed:
+
+1. `scripts/research_memory.py`: a SUPPORTED card with omitted `access_level` is now rejected, matching the stored default UNAVAILABLE. The new regression test covers the omitted and explicit UNAVAILABLE cases plus a valid PARTIAL_TEXT_INSPECTED record.
+2. `scripts/research_memory.py`: a source_path is resolved to the existing file's absolute canonical path before hashing and persistence. The new regression test switches between two directories containing identically named, different source files, and checks that staleness is determined against the original one.
+3. `scripts/marker_calibration.py`: independently verified human marker feedback must have the literal JSON boolean `true`; strings such as "false"/"UNVERIFIED", integers and null can no longer enter calibration as verified. The new test checks these invalid cases.
+4. A second read-only Codex review of the updated PR identified a further P2 numeric-sign error in `scripts/source_audit.py`: negative percentages or correlations matched positive numbers. The expression and text normaliser now preserve ASCII/Unicode minus signs, with tests for +/−20% and +/−0.6 source/claim reversals and equivalent negative glyphs.
+
+**Evidence:**
+- Fix commits `1e183f31dc87064b3207b98f6fb03d5dfc6dc450` and `fe3cf082d1279a0647ef85cc624591f24d3b98cd`.
+- The new tests failed before the corresponding code fixes, then passed after the repairs.
+- MSI full test suite: **90/90 PASS**, including the optional two-page PDF integration test.
+- GitHub Actions for `fe3cf08`: **SUCCESS**, **90 tests**, one optional Linux PDF test skipped; the same test passed on MSI.
+- Exact skills-only ZIP hash remains `0656c9d88c25d2113d56f1499981b3cb7b0df8e482d62b20a179ec33b3460840` because executable Python tools and their tests are intentionally outside the portable six-skill archive.
+- No real student data was used in regression tests, no new dependency was installed, and the private v1.3 release is unchanged.
+
+A third, narrow, read-only Codex review was requested on commit `fe3cf08` to validate the final sign-handling fix. This review is independent of the MSI and CI test results and is not a merge or publication approval.
+
+### Third Codex review and runtime adjudication
+
+Codex completed a read-only review of sign-fix commit `fe3cf08` and raised a P2 concern that a range such as `10-20%` would be parsed as `-20%`. Codex's restricted read-only shell could not run Python. We checked the exact claim on the real MSI host: `test_numeric_range_hyphen_is_not_a_negative_sign` verifies that ASCII `10-20%` and mathematical-minus `10−20%` both parse as positive endpoints `10` and `20%`, accept a `20%` reference and warn against a `-20%` interpretation. The regression test **passed**, so this exact reported case is a false positive and no additional source-auditor code change is needed.
+
+This check tests parsing only, not the truth of the whole interval or any scientific inference. More ambiguous spaced ranges and unusual PDF extraction remain reasons for human/source review, not automatic claim support. The new test and source-linked review receipt are retained in PR #2.
